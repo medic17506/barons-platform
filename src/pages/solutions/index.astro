@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import { solutions } from '../../data/solutions';
+---
+<Layout title="Solutions | Barons, Inc." description="Business technology solutions for accounting, payroll, payments, CRM, inventory, reporting, and automation." canonical="/solutions">
+  <main id="main-content">
+    <PageHero eyebrow="Solutions" title="Business systems, connected around the way you actually work." description="We help you choose and implement the tools that run the business, then support the people who depend on them every day." />
+    <section class="mx-auto max-w-7xl px-6 py-20">
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {solutions.map((solution) => (
+          <a href={`/solutions/${solution.slug}`} class="group rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-green-300/40 hover:bg-white/[0.06]">
+            <h2 class="text-2xl font-black">{solution.title}</h2>
+            <p class="mt-4 leading-7 text-slate-400">{solution.description}</p>
+            <p class="mt-6 text-sm font-bold text-green-300">Open solution →</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

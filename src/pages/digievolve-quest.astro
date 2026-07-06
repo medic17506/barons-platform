@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import { bossPhases } from '../data/solutions';
+---
+<Layout title="DigiEvolve Quest | Barons, Inc." description="The DigiEvolve Quest is Barons’ playful path for turning disconnected business tools into a cleaner operating system." canonical="/digievolve-quest">
+  <main id="main-content">
+    <PageHero eyebrow="DigiEvolve Quest" title="Every business has an evolution path." description="This is the fun layer of the Barons site: a practical quest for transforming messy systems into something stronger, cleaner, and more human." />
+    <section class="mx-auto max-w-7xl px-6 py-20">
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {bossPhases.map((phase) => (
+          <article class="rounded-3xl border border-green-300/20 bg-white/[0.03] p-7">
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-400 text-3xl font-black text-slate-950">{phase.phase}</div>
+            <h2 class="mt-5 text-2xl font-black">{phase.title}</h2>
+            <p class="mt-4 leading-7 text-slate-400">{phase.description}</p>
+          </article>
+        ))}
+      </div>
+      <div class="mt-10 rounded-[2rem] border border-white/10 bg-slate-900 p-8">
+        <p class="text-sm font-black uppercase tracking-[0.24em] text-green-300">Easter egg layer</p>
+        <h2 class="mt-4 text-3xl font-black">A site that can grow personality without becoming childish.</h2>
+        <p class="mt-4 max-w-3xl leading-8 text-slate-300">The quest language gives us room for badges, hidden details, checklists, diagnostic tools, and playful moments while keeping the main Barons brand credible and professional.</p>
+      </div>
+    </section>
+  </main>
+</Layout>

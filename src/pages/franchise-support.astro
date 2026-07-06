@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import { franchiseBrands, processSteps } from '../data/solutions';
+---
+<Layout title="Franchise Support | Barons, Inc." description="Franchise-aware accounting, payroll, payments, CRM, reporting, launch, and support systems for owners and multi-unit operators." canonical="/franchise-support">
+  <main id="main-content">
+    <PageHero eyebrow="Franchise Support" title="Franchise standards without franchise chaos." description="We help owners meet the requirements of the brand while building systems that actually work for the local team." />
+    <section class="mx-auto grid max-w-7xl gap-8 px-6 py-20 lg:grid-cols-[0.9fr_1.1fr]">
+      <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+        <h2 class="text-3xl font-black">Where we help</h2>
+        <ul class="mt-6 grid gap-4 text-slate-300">
+          {processSteps.map((step) => <li class="rounded-2xl border border-white/10 bg-slate-950 p-4 font-semibold">{step}</li>)}
+        </ul>
+      </div>
+      <div class="rounded-3xl border border-white/10 bg-slate-900 p-8">
+        <h2 class="text-3xl font-black">Franchise experience signal</h2>
+        <p class="mt-4 leading-8 text-slate-300">The brands matter, but the pattern matters more: owner groups, location records, reporting requirements, payroll access, launch timing, and support after the grand opening.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          {franchiseBrands.map((brand) => <span class="rounded-full border border-white/10 bg-slate-950 px-4 py-2 text-sm font-bold text-slate-300">{brand}</span>)}
+        </div>
+        <a href="/contact" class="mt-8 inline-flex rounded-full bg-green-400 px-6 py-3 font-black text-slate-950">Talk franchise systems</a>
+      </div>
+    </section>
+  </main>
+</Layout>

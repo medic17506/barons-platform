@@ -1,0 +1,26 @@
+---
+import Eyebrow from '../ui/Eyebrow.astro';
+import { processSteps } from '../../data/solutions';
+---
+<section class="border-y border-white/10 bg-slate-900/45 py-24">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div>
+        <Eyebrow text="How the work moves" />
+        <h2 class="mt-4 text-4xl font-black tracking-tight md:text-5xl">We do not start by selling you software.</h2>
+        <p class="mt-6 text-lg leading-8 text-slate-300">That is how businesses end up with another subscription, another login, and the same old mess. We start with the operating reality, then build the right system around it.</p>
+      </div>
+      <div class="grid gap-4">
+        {processSteps.map((step, index) => (
+          <div class="flex gap-5 rounded-3xl border border-white/10 bg-slate-950 p-5">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-green-400 text-xl font-black text-slate-950">{index + 1}</div>
+            <div>
+              <h3 class="text-xl font-black">{step}</h3>
+              <p class="mt-2 leading-7 text-slate-400">Clear enough to follow. Flexible enough for the way real businesses actually work.</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+---
+import ButtonLink from '../ui/ButtonLink.astro';
+import Eyebrow from '../ui/Eyebrow.astro';
+import { franchiseBrands } from '../../data/solutions';
+---
+<section class="bg-slate-950 py-24">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="grid gap-10 rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 md:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+      <div>
+        <Eyebrow text="Franchise-aware" />
+        <h2 class="mt-4 text-4xl font-black tracking-tight md:text-5xl">Franchise systems have rules. Owners still have real lives.</h2>
+        <p class="mt-6 text-lg leading-8 text-slate-300">We help bridge the gap between franchisor requirements and the messy, practical reality of local operators, coaches, staff, locations, payroll, reporting, and support.</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <ButtonLink href="/franchise-support">Franchise support</ButtonLink>
+          <ButtonLink href="/who-we-help" variant="secondary">Who we help</ButtonLink>
+        </div>
+      </div>
+      <div>
+        <p class="text-sm font-black uppercase tracking-[0.24em] text-slate-500">Experience across brands including</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          {franchiseBrands.map((brand) => <span class="rounded-full border border-white/10 bg-slate-950 px-4 py-2 text-sm font-bold text-slate-300">{brand}</span>)}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

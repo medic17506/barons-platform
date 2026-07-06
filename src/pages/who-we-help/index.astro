@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import { audiences } from '../../data/solutions';
+---
+<Layout title="Who We Help | Barons, Inc." description="Barons helps franchise owners, multi-location operators, small businesses, and independent sales organizations build better systems.">
+  <main id="main-content">
+    <PageHero eyebrow="Who we help" title="Support for businesses that are ready to operate cleaner." description="From franchise launches to multi-location reporting to direct independent sales, we build around the reality of the business, not a generic software checklist." />
+    <section class="mx-auto max-w-7xl px-6 py-20">
+      <div class="grid gap-5 md:grid-cols-2">
+        {audiences.map((audience) => (
+          <article class="rounded-3xl border border-white/10 bg-white/[0.03] p-7">
+            <h2 class="text-2xl font-black">{audience.title}</h2>
+            <p class="mt-4 leading-7 text-slate-400">{audience.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

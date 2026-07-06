@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+const resources = ['Learning Center', 'Guides', 'Downloads', 'FAQs', 'Videos', 'Knowledge Base'];
+---
+<Layout title="Resources | Barons, Inc." description="Practical resources for business systems, accounting technology, franchise operations, and growth.">
+  <main id="main-content">
+    <PageHero eyebrow="Resources" title="Useful answers before a sales pitch." description="This area will become the home for guides, explainers, checklists, and support content that help owners make better technology decisions." />
+    <section class="mx-auto max-w-7xl px-6 py-20">
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {resources.map((resource) => <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6 text-xl font-black">{resource}</div>)}
+      </div>
+    </section>
+  </main>
+</Layout>

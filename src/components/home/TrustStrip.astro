@@ -1,0 +1,13 @@
+---
+import { platforms } from '../../data/solutions';
+---
+<section class="border-b border-white/10 bg-slate-950 py-8">
+  <div class="mx-auto max-w-7xl px-6">
+    <p class="text-xs font-bold uppercase tracking-[0.28em] text-slate-500">Platform-aware, problem-first</p>
+    <div class="mt-5 flex flex-wrap gap-3">
+      {platforms.map((platform) => (
+        <span class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm font-semibold text-slate-300">{platform}</span>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+---
+import Eyebrow from '../ui/Eyebrow.astro';
+const { eyebrow = 'Barons', title, description } = Astro.props;
+---
+<section class="border-b border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.18),transparent_35%),#020617] pt-32">
+  <div class="mx-auto max-w-7xl px-6 py-24">
+    <Eyebrow text={eyebrow} />
+    <h1 class="mt-5 max-w-4xl text-5xl font-black tracking-tight md:text-7xl">{title}</h1>
+    <p class="mt-7 max-w-3xl text-lg leading-8 text-slate-300">{description}</p>
+  </div>
+</section>

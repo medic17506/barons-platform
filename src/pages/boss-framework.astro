@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import { bossPhases } from '../data/solutions';
+---
+<Layout title="BOSS Framework | Barons, Inc." description="The Barons Operating System for Scaling helps businesses move from messy systems to scalable operations.">
+  <main id="main-content">
+    <PageHero eyebrow="BOSS Framework" title="The Barons Operating System for Scaling." description="BOSS keeps system work deliberate: understand the current state, improve what matters, scale with the right tools, and support the people after launch." />
+    <section class="mx-auto max-w-7xl px-6 py-20">
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {bossPhases.map((phase) => (
+          <article class="rounded-3xl border border-white/10 bg-white/[0.03] p-7">
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-green-400 text-3xl font-black text-slate-950">{phase.phase}</div>
+            <h2 class="mt-5 text-2xl font-black">{phase.title}</h2>
+            <p class="mt-4 leading-7 text-slate-400">{phase.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

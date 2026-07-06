@@ -1,0 +1,27 @@
+---
+import Eyebrow from '../ui/Eyebrow.astro';
+import ButtonLink from '../ui/ButtonLink.astro';
+import { audiences } from '../../data/solutions';
+---
+<section class="bg-slate-950 py-24">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="max-w-3xl">
+      <Eyebrow text="Who we help" />
+      <h2 class="mt-4 text-4xl font-black tracking-tight md:text-5xl">Built for the owner who has outgrown guessing.</h2>
+      <p class="mt-6 text-lg leading-8 text-slate-300">
+        The work changes by industry, but the pattern is familiar: too many disconnected tools, not enough visibility, and a team that needs support after launch.
+      </p>
+    </div>
+    <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {audiences.map((audience) => (
+        <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+          <h3 class="text-xl font-black text-white">{audience.title}</h3>
+          <p class="mt-4 leading-7 text-slate-400">{audience.description}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-10">
+      <ButtonLink href="/who-we-help" variant="secondary">See who we help</ButtonLink>
+    </div>
+  </div>
+</section>

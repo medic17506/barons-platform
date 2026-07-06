@@ -1,0 +1,30 @@
+---
+import Eyebrow from '../ui/Eyebrow.astro';
+import ButtonLink from '../ui/ButtonLink.astro';
+import { bossPhases } from '../../data/solutions';
+---
+<section class="border-y border-white/10 bg-slate-900/50 py-24">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div>
+        <Eyebrow text="The BOSS Framework" />
+        <h2 class="mt-4 text-4xl font-black tracking-tight md:text-5xl">A deliberate path from messy to scalable.</h2>
+        <p class="mt-6 text-lg leading-8 text-slate-300">
+          BOSS is the Barons Operating System for Scaling. It gives every project a clear structure before anyone starts throwing software at the problem.
+        </p>
+        <div class="mt-8">
+          <ButtonLink href="/boss-framework" variant="secondary">Explore the framework</ButtonLink>
+        </div>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {bossPhases.map((phase) => (
+          <div class="rounded-3xl border border-white/10 bg-slate-950 p-6">
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-green-400 text-2xl font-black text-slate-950">{phase.phase}</div>
+            <h3 class="mt-5 text-xl font-black">{phase.title}</h3>
+            <p class="mt-3 leading-7 text-slate-400">{phase.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

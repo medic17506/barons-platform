@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import { solutions } from '../../data/solutions';
+
+export function getStaticPaths() {
+  return solutions.map((solution) => ({
+    params: { slug: solution.slug },
+    props: { solution },
+  }));
+}
+
+const { solution } = Astro.props;
+---
+<Layout title={`${solution.title} | Barons, Inc.`} description={solution.description} canonical={`/solutions/${solution.slug}`}>
+  <main id="main-content">
+    <PageHero eyebrow="Solution" title={solution.title} description={solution.description} />
+    <section class="mx-auto grid max-w-7xl gap-8 px-6 py-20 lg:grid-cols-[0.8fr_1.2fr]">
+      <aside class="rounded-3xl border border-white/10 bg-white/[0.03] p-7">
+        <p class="text-sm font-black uppercase tracking-[0.24em] text-green-300">Promise</p>
+        <p class="mt-4 text-2xl font-black leading-8 text-white">{solution.promise}</p>
+        <p class="mt-6 text-sm font-black uppercase tracking-[0.24em] text-slate-500">Common signals</p>
+        <ul class="mt-4 grid gap-3 text-slate-300">
+          {solution.pain.map((item) => <li class="rounded-2xl border border-white/10 bg-slate-950 px-4 py-3">{item}</li>)}
+        </ul>
+      </aside>
+      <article class="rounded-3xl border border-white/10 bg-slate-900 p-8">
+        <h2 class="text-3xl font-black">How Barons approaches this work</h2>
+        <div class="mt-6 grid gap-5 text-slate-300">
+          <p class="leading-8">We map the current workflow, identify the people affected, review platform requirements, and build toward a cleaner operating system instead of a one-off software install.</p>
+          <p class="leading-8">When the project goes live, the work is not finished. Support, training, documentation, and ongoing refinement are what keep the system useful.</p>
+          <p class="leading-8">The goal is not more technology. The goal is less operational drag, clearer responsibility, and better decisions.</p>
+        </div>
+        <a href="/contact" class="mt-8 inline-flex rounded-full bg-green-400 px-6 py-3 font-black text-slate-950">Talk through this solution</a>
+      </article>
+    </section>
+  </main>
+</Layout>
