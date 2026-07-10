@@ -1,64 +1,86 @@
 ---
 import ButtonLink from '../ui/ButtonLink.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
----
-<section id="hero" aria-labelledby="hero-heading" class="relative isolate overflow-hidden border-b border-white/10 pt-28">
-  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.22),transparent_34%),radial-gradient(circle_at_78%_18%,rgba(14,165,233,0.18),transparent_30%),linear-gradient(180deg,#020617,#0f172a_58%,#020617)]"></div>
-  <div class="absolute left-1/2 top-24 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-green-300/10 blur-3xl"></div>
 
-  <div class="mx-auto grid min-h-[780px] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr]">
+const evolutionSteps = [
+  'Accounting core stabilized',
+  'Payroll + workforce connected',
+  'Payments + cash flow clarified',
+  'CRM + onboarding mapped',
+  'Reporting + automation leveled up',
+];
+---
+
+<section id="hero" aria-labelledby="hero-heading" class="relative isolate overflow-hidden border-b border-white/10 pt-28">
+  <div class="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_18%_18%,rgba(34,197,94,0.18),transparent_30%),radial-gradient(circle_at_82%_22%,rgba(14,165,233,0.16),transparent_34%),linear-gradient(180deg,#020617,#071426_58%,#020617)]"></div>
+  <div class="absolute right-[7%] top-32 -z-10 hidden h-[34rem] w-[34rem] rounded-full border border-green-300/10 bg-[radial-gradient(circle,rgba(34,197,94,0.12),transparent_66%)] blur-sm lg:block" aria-hidden="true"></div>
+  <div class="absolute right-[12%] top-44 -z-10 hidden h-[24rem] w-[24rem] rounded-full border border-dashed border-green-300/15 lg:block" aria-hidden="true"></div>
+
+  <div class="mx-auto grid min-h-[780px] max-w-7xl items-center gap-14 px-6 py-20 lg:grid-cols-[1.02fr_0.98fr]">
     <div>
       <Eyebrow text="Barons Platform" />
       <h1 id="hero-heading" class="mt-5 max-w-5xl text-5xl font-black tracking-tight text-white md:text-7xl">
-        Digitally evolve your business without losing the humans.
+        Digitally evolve your business without losing the <span class="text-green-300">humans.</span>
       </h1>
       <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
         Barons builds connected business systems for accounting, payroll, payments, CRM, reporting, automation, and franchise operations. We bring the tools together, then stay close enough to make sure real people can use them.
       </p>
+
       <div class="mt-10 flex flex-wrap gap-4">
-        <ButtonLink href="/contact">Start a Systems Conversation</ButtonLink>
-        <ButtonLink href="/digievolve-quest" variant="secondary">Enter the DigiEvolve Quest</ButtonLink>
+        <ButtonLink href="/contact">Start a Systems Conversation <span aria-hidden="true">→</span></ButtonLink>
+        <ButtonLink href="/digievolve-quest" variant="secondary">Enter the DigiEvolve Quest <span aria-hidden="true">→</span></ButtonLink>
       </div>
-      <div class="mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
+
+      <dl class="mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
         <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-          <p class="text-3xl font-black text-green-300">23+</p>
-          <p class="mt-1 text-xs uppercase tracking-[0.2em] text-slate-400">Years helping businesses</p>
+          <dt class="text-xs uppercase tracking-[0.2em] text-slate-400">Years helping businesses</dt>
+          <dd class="mt-2 text-3xl font-black text-green-300">23+</dd>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-          <p class="text-3xl font-black text-green-300">42+</p>
-          <p class="mt-1 text-xs uppercase tracking-[0.2em] text-slate-400">Franchise ecosystems</p>
+          <dt class="text-xs uppercase tracking-[0.2em] text-slate-400">Franchise ecosystems</dt>
+          <dd class="mt-2 text-3xl font-black text-green-300">42+</dd>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-          <p class="text-3xl font-black text-green-300">9</p>
-          <p class="mt-1 text-xs uppercase tracking-[0.2em] text-slate-400">Countries served</p>
+          <dt class="text-xs uppercase tracking-[0.2em] text-slate-400">Countries served</dt>
+          <dd class="mt-2 text-3xl font-black text-green-300">9</dd>
         </div>
-      </div>
+      </dl>
     </div>
 
-    <div>
-      <div class="rounded-[2rem] border border-white/10 bg-slate-900/80 p-5 shadow-2xl shadow-green-950/20 backdrop-blur">
-        <div class="rounded-[1.5rem] border border-white/10 bg-slate-950 p-6">
-          <div class="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
+    <div class="min-w-0">
+      <div class="rounded-[2rem] border border-green-300/20 bg-slate-900/85 p-4 shadow-2xl shadow-green-950/30 backdrop-blur md:p-5">
+        <div class="rounded-[1.5rem] border border-white/10 bg-slate-950 p-5 md:p-6">
+          <div class="grid gap-4 border-b border-white/10 pb-5 xl:grid-cols-[1fr_auto] xl:items-start">
             <div>
-              <p class="text-sm font-bold text-white">System Evolution Map</p>
-              <p class="text-xs text-slate-500">DigiEvolve quest log</p>
+              <p class="text-base font-black text-white">System Evolution Map</p>
+              <p class="mt-1 text-sm text-slate-500">DigiEvolve quest log</p>
             </div>
-            <div class="flex flex-wrap gap-2">
-              <span class="rounded-full border border-green-300/20 bg-green-300/10 px-3 py-1 text-xs font-black text-green-200">Quest status: active</span>
-              <span class="rounded-full bg-green-400/10 px-3 py-1 text-xs font-bold text-green-300">Human guided</span>
+
+            <div class="grid gap-2 sm:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2" aria-label="Quest information">
+              <span class="inline-flex min-h-9 items-center justify-center gap-2 rounded-full border border-green-300/25 bg-green-300/10 px-3 py-1.5 text-center text-xs font-black text-green-200">
+                <span class="h-2 w-2 shrink-0 rounded-full bg-green-400" aria-hidden="true"></span>
+                Quest status: active
+              </span>
+              <span class="inline-flex min-h-9 items-center justify-center rounded-full bg-green-400/10 px-3 py-1.5 text-center text-xs font-bold text-green-300">Human guided</span>
             </div>
           </div>
-          <div class="mt-6 grid gap-4">
-            {['Accounting core stabilized', 'Payroll + workforce connected', 'Payments + cash flow clarified', 'CRM + onboarding mapped', 'Reporting + automation leveled up'].map((item, index) => (
-              <div class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-green-300/40 hover:bg-white/[0.06]">
-                <span class="flex h-9 w-9 items-center justify-center rounded-full bg-green-400/10 text-sm font-black text-green-300">{index + 1}</span>
-                <span class="font-semibold text-slate-200">{item}</span>
-              </div>
+
+          <ol class="mt-6 grid gap-3">
+            {evolutionSteps.map((item, index) => (
+              <li class="group flex min-w-0 items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-green-300/40 hover:bg-white/[0.06]">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-green-400/10 text-sm font-black text-green-300">{index + 1}</span>
+                <span class="min-w-0 font-semibold text-slate-200">{item}</span>
+                <span class="ml-auto hidden h-7 w-7 shrink-0 items-center justify-center rounded-full bg-green-400 text-sm font-black text-slate-950 sm:flex" aria-hidden="true">✓</span>
+              </li>
             ))}
-          </div>
-          <div class="mt-6 rounded-2xl bg-green-400 p-5 text-slate-950">
-            <p class="text-sm font-black uppercase tracking-[0.2em]">Next evolution</p>
-            <p class="mt-2 text-lg font-black">A cleaner operating system for the business you are becoming.</p>
+          </ol>
+
+          <div class="mt-6 grid gap-4 rounded-2xl bg-green-400 p-5 text-slate-950 sm:grid-cols-[1fr_auto] sm:items-end">
+            <div>
+              <p class="text-sm font-black uppercase tracking-[0.2em]">Next evolution</p>
+              <p class="mt-2 text-lg font-black">A cleaner operating system for the business you are becoming.</p>
+            </div>
+            <span class="text-4xl font-black" aria-hidden="true">↗</span>
           </div>
         </div>
       </div>
