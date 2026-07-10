@@ -2,15 +2,46 @@
 
 :root {
   color-scheme: dark;
+
+  /* Brand */
+  --color-brand-primary: #4ade80;
+  --color-brand-primary-hover: #86efac;
+  --color-brand-secondary: #38bdf8;
+
+  /* Surfaces */
+  --color-page: #020617;
+  --color-surface: #0f172a;
+  --color-surface-raised: #1e293b;
+  --color-border: rgba(255, 255, 255, 0.12);
+
+  /* Text */
+  --color-text: #f8fafc;
+  --color-text-muted: #cbd5e1;
+  --color-text-subtle: #94a3b8;
+
+  /* Feedback */
+  --color-success: #4ade80;
+  --color-warning: #facc15;
+  --color-danger: #f87171;
+
+  /* Shape and motion */
+  --radius-card: 1.5rem;
+  --radius-panel: 2rem;
+  --shadow-raised: 0 24px 60px rgba(2, 6, 23, 0.35);
+  --transition-fast: 150ms ease;
+  --transition-standard: 220ms ease;
 }
 
 html {
   scroll-behavior: smooth;
+  background: var(--color-page);
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  background: var(--color-page);
+  color: var(--color-text);
 }
 
 ::selection {
@@ -19,6 +50,41 @@ body {
 
 input,
 textarea,
+select,
 button {
   font: inherit;
+}
+
+button,
+[role="button"],
+a,
+input,
+textarea,
+select,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-brand-primary);
+  outline-offset: 4px;
+}
+
+:target {
+  scroll-margin-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
