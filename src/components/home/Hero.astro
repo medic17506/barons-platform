@@ -2,14 +2,14 @@
 import ButtonLink from '../ui/ButtonLink.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
 ---
-<section id="main-content" class="relative isolate overflow-hidden border-b border-white/10 pt-28">
+<section id="hero" aria-labelledby="hero-heading" class="relative isolate overflow-hidden border-b border-white/10 pt-28">
   <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.22),transparent_34%),radial-gradient(circle_at_78%_18%,rgba(14,165,233,0.18),transparent_30%),linear-gradient(180deg,#020617,#0f172a_58%,#020617)]"></div>
   <div class="absolute left-1/2 top-24 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-green-300/10 blur-3xl"></div>
 
   <div class="mx-auto grid min-h-[780px] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr]">
     <div>
       <Eyebrow text="Barons Platform" />
-      <h1 class="mt-5 max-w-5xl text-5xl font-black tracking-tight text-white md:text-7xl">
+      <h1 id="hero-heading" class="mt-5 max-w-5xl text-5xl font-black tracking-tight text-white md:text-7xl">
         Digitally evolve your business without losing the humans.
       </h1>
       <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
@@ -21,7 +21,7 @@ import Eyebrow from '../ui/Eyebrow.astro';
       </div>
       <div class="mt-10 grid max-w-2xl gap-4 sm:grid-cols-3">
         <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-          <p class="text-3xl font-black text-green-300">20+</p>
+          <p class="text-3xl font-black text-green-300">23+</p>
           <p class="mt-1 text-xs uppercase tracking-[0.2em] text-slate-400">Years helping businesses</p>
         </div>
         <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
