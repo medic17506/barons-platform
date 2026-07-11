@@ -1,0 +1,49 @@
+---
+import type { AuthorityEntity } from '../../types/authority';
+import { resolveCommerceCta } from '../../lib/commerce';
+
+interface Props {
+  entity: AuthorityEntity;
+  secondary?: boolean;
+}
+
+const { entity, secondary = false } = Astro.props;
+const resolved = resolveCommerceCta(entity);
+const showIntentGateway = entity.intent && (entity.intent.start || entity.intent.compare || entity.intent.design);
+---
+
+<div class="grid gap-5">
+  {showIntentGateway && (
+    <div>
+      <p class="text-sm font-black uppercase tracking-[0.22em] text-slate-700">Choose your path</p>
+      <div class="mt-4 grid gap-3 md:grid-cols-3">
+        {entity.intent?.start && (
+          <a href={resolved.href} class="rounded-2xl bg-slate-950 px-5 py-4 font-black text-white transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-950">
+            {resolved.label}
+          </a>
+        )}
+        {entity.intent?.compare && (
+          <a href={`/compare/?product=${entity.slug}`} class="rounded-2xl border-2 border-slate-950 px-5 py-4 font-black text-slate-950 transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-950">
+            Compare Options
+          </a>
+        )}
+        {entity.intent?.design && (
+          <a href="/start" class="rounded-2xl border-2 border-slate-950 px-5 py-4 font-black text-slate-950 transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-950">
+            Design the Right System
+          </a>
+        )}
+      </div>
+    </div>
+  )}
+
+  {!showIntentGateway && (
+    <div class="flex flex-wrap gap-4">
+      <a href={resolved.href} class="rounded-full bg-slate-950 px-6 py-3 font-black text-white">{resolved.label}</a>
+      {secondary && (
+        <a href={entity.secondaryCta.href} class="rounded-full border-2 border-slate-950 px-6 py-3 font-black text-slate-950">{entity.secondaryCta.label}</a>
+      )}
+    </div>
+  )}
+
+  {resolved.note && <p class="text-sm leading-6 text-slate-700">{resolved.note}</p>}
+</div>
