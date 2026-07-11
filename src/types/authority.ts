@@ -29,6 +29,15 @@ export interface AuthorityLink {
   description?: string;
 }
 
+export interface BrandAsset {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  source?: string;
+  approved?: boolean;
+}
+
 export interface AuthorityQuestion {
   question: string;
   answer: string;
@@ -81,6 +90,7 @@ export interface AuthorityEntity {
   commerce?: CommerceOptions;
   confidence?: SupportConfidence;
   recommendationStrength?: RecommendationStrength;
+  logo?: BrandAsset;
   seoTitle: string;
   seoDescription: string;
   schemaType: 'Service' | 'SoftwareApplication' | 'Article' | 'ProfessionalService' | 'Organization';
@@ -99,6 +109,7 @@ export interface HierarchyChild {
   href: string;
   description: string;
   badge?: string;
+  logo?: BrandAsset;
 }
 
 export type PlatformEntity = AuthorityEntity & {
