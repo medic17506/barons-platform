@@ -1,19 +1,58 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/sections/PageHero.astro';
-import { audiences } from '../../data/solutions';
+import ButtonLink from '../../components/ui/ButtonLink.astro';
+
+const paths = [
+  { stage: 'Starting', title: 'Startups', question: 'Where do I start?', description: 'Choose the right accounting, payroll, payments, CRM, and operating foundations before temporary workarounds become permanent problems.' },
+  { stage: 'Stabilizing', title: 'Small Businesses', question: 'How do I get control?', description: 'Replace spreadsheets, duplicate entry, unclear ownership, and disconnected tools with a practical operating system your team can maintain.' },
+  { stage: 'Growing', title: 'Growing Companies', question: 'How do we scale without breaking things?', description: 'Connect systems, clarify reporting, automate the right work, and create processes that can support more people, customers, and complexity.' },
+  { stage: 'Expanding', title: 'Multi-Location Operators', question: 'How do I see the whole business?', description: 'Create consistent workflows, permissions, reporting, payroll, payments, and visibility across locations without erasing local operating realities.' },
+  { stage: 'Standardizing', title: 'Franchise Owners & Systems', question: 'How do we stay consistent?', description: 'Support franchise launches, ownership groups, transfers, coach access, reporting standards, and franchise-aware technology across an evolving network.' },
+  { stage: 'Partnering', title: 'Accounting Firms & Advisors', question: 'Who can handle the technology side?', description: 'Extend your capabilities with platform selection, implementation, conversion, payroll, payments, reporting, automation, and long-term client support.' },
+  { stage: 'Protecting', title: 'Nonprofits', question: 'How do we improve accountability?', description: 'Strengthen controls, reporting, access, fund visibility, recurring workflows, and the systems that help leadership steward resources responsibly.' },
+  { stage: 'Evolving', title: 'Mid-Market Businesses', question: 'What comes after the tools we have outgrown?', description: 'Evaluate more capable accounting, CRM, reporting, workforce, and multi-entity systems without forcing the business into technology it does not need.' },
+];
 ---
-<Layout title="Who We Help | Barons, Inc." description="Barons helps franchise owners, multi-location operators, small businesses, and independent sales organizations build better systems.">
+
+<Layout title="Who We Help | Barons, Inc." description="Barons helps startups, small businesses, growing companies, multi-location operators, franchises, accounting firms, nonprofits, and mid-market businesses build better operating systems.">
   <main id="main-content">
-    <PageHero eyebrow="Who we help" title="Support for businesses that are ready to operate cleaner." description="From franchise launches to multi-location reporting to direct independent sales, we build around the reality of the business, not a generic software checklist." />
-    <section class="mx-auto max-w-7xl px-6 py-20">
-      <div class="grid gap-5 md:grid-cols-2">
-        {audiences.map((audience) => (
-          <article class="rounded-3xl border border-white/10 bg-white/[0.03] p-7">
-            <h2 class="text-2xl font-black">{audience.title}</h2>
-            <p class="mt-4 leading-7 text-slate-400">{audience.description}</p>
+    <PageHero
+      eyebrow="Who we help"
+      title="Every business owner starts somewhere."
+      description="Whether you are launching your first company, managing multiple locations, or untangling years of disconnected systems, Barons meets you where you are and helps you evolve from there."
+    />
+
+    <section aria-labelledby="paths-heading" class="mx-auto max-w-7xl px-6 py-20">
+      <div class="max-w-3xl">
+        <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Find your path</p>
+        <h2 id="paths-heading" class="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">Different stages. The same need for clarity.</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-300">You do not need to know which software to ask for. Start with the situation that sounds most like your business.</p>
+      </div>
+
+      <div class="mt-12 grid gap-5 md:grid-cols-2">
+        {paths.map((path, index) => (
+          <article class="group rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition hover:border-green-300/40 hover:bg-white/[0.05]">
+            <div class="flex items-start justify-between gap-5">
+              <p class="text-xs font-black uppercase tracking-[0.2em] text-green-300">{path.stage}</p>
+              <span class="text-sm font-black text-slate-600" aria-hidden="true">0{index + 1}</span>
+            </div>
+            <h3 class="mt-4 text-2xl font-black text-white">{path.title}</h3>
+            <p class="mt-2 text-lg font-bold text-green-200">“{path.question}”</p>
+            <p class="mt-4 leading-7 text-slate-300">{path.description}</p>
           </article>
         ))}
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-slate-900/60">
+      <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div class="max-w-3xl">
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Not sure where you fit?</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight text-white">That is exactly what the strategy session is for.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-300">Tell us what is frustrating you. We will help identify the real problem before anyone starts prescribing software.</p>
+        </div>
+        <ButtonLink href="/start">Start a Strategy Session <span aria-hidden="true">→</span></ButtonLink>
       </div>
     </section>
   </main>
