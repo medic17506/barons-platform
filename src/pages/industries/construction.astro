@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Wave3Page from '../../components/authority/Wave3Page.astro';
+import { constructionEntity } from '../../data/authority/wave3';
+---
+
+<Layout title={constructionEntity.seoTitle} description={constructionEntity.seoDescription}>
+  <main id="main-content">
+    <Wave3Page entity={constructionEntity} />
+  </main>
+</Layout>
