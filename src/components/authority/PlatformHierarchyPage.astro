@@ -2,6 +2,8 @@
 import type { PlatformEntity } from '../../types/authority';
 import PageHero from '../sections/PageHero.astro';
 import ProductCta from '../commerce/ProductCta.astro';
+import TrustSignals from './TrustSignals.astro';
+import RelatedContent from './RelatedContent.astro';
 
 interface Props {
   entity: PlatformEntity;
@@ -94,6 +96,9 @@ const schema = {
     ))}
   </ol>
 </section>
+
+<TrustSignals slug={entity.slug} />
+<RelatedContent entity={entity} />
 
 <section aria-labelledby="questions-heading" class="mx-auto max-w-5xl px-6 pb-24">
   <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Questions people ask</p>
