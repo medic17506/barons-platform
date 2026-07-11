@@ -1,0 +1,27 @@
+---
+import { getTrustSignals } from '../../data/authority/trust';
+
+interface Props {
+  slug: string;
+  heading?: string;
+}
+
+const { slug, heading = 'Why trust Barons with this decision?' } = Astro.props;
+const signals = getTrustSignals(slug);
+---
+
+<section aria-labelledby={`trust-${slug}`} class="mx-auto max-w-7xl px-6 py-16">
+  <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-7 md:p-10">
+    <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Evidence-backed authority</p>
+    <h2 id={`trust-${slug}`} class="mt-3 max-w-3xl text-3xl font-black text-white md:text-4xl">{heading}</h2>
+    <div class="mt-8 grid gap-5 md:grid-cols-2">
+      {signals.map((signal) => (
+        <article class="rounded-3xl border border-white/10 bg-slate-950/70 p-6">
+          <h3 class="text-xl font-black text-white">{signal.label}</h3>
+          <p class="mt-3 leading-7 text-slate-300">{signal.detail}</p>
+          <p class="mt-4 text-sm leading-6 text-slate-500"><span class="font-bold text-slate-400">Evidence:</span> {signal.evidence}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
