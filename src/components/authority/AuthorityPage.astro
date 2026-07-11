@@ -1,0 +1,118 @@
+---
+import type { AuthorityEntity } from '../../types/authority';
+import PageHero from '../sections/PageHero.astro';
+
+interface Props {
+  entity: AuthorityEntity;
+}
+
+const { entity } = Astro.props;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': entity.schemaType,
+  name: entity.title,
+  description: entity.description,
+  provider: {
+    '@type': 'Organization',
+    name: 'Barons, Inc.',
+    url: 'https://baronsinc.com',
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+<PageHero eyebrow={entity.eyebrow} title={entity.title} description={entity.description} />
+
+<section aria-labelledby="chaos-heading" class="mx-auto max-w-7xl px-6 py-16 md:py-20">
+  <div class="grid gap-8 rounded-[2rem] border border-green-300/20 bg-green-300/[0.06] p-7 md:p-10 lg:grid-cols-[0.7fr_1.3fr] lg:items-center">
+    <div>
+      <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">The chaos this solves</p>
+      <h2 id="chaos-heading" class="mt-3 text-3xl font-black tracking-tight text-white md:text-4xl">{entity.promise}</h2>
+    </div>
+    <p class="text-lg leading-8 text-slate-300">{entity.chaosStatement}</p>
+  </div>
+</section>
+
+<section aria-labelledby="fit-heading" class="mx-auto grid max-w-7xl gap-8 px-6 pb-20 lg:grid-cols-2">
+  <article class="rounded-3xl border border-white/10 bg-white/[0.03] p-7 md:p-8">
+    <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Who it is for</p>
+    <h2 id="fit-heading" class="mt-3 text-3xl font-black text-white">A strong fit when</h2>
+    <ul class="mt-6 grid gap-3 text-slate-300">
+      {entity.audience.map((item) => <li class="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3">{item}</li>)}
+    </ul>
+  </article>
+
+  <article class="rounded-3xl border border-white/10 bg-slate-900 p-7 md:p-8">
+    <p class="text-sm font-black uppercase tracking-[0.22em] text-slate-400">Common warning signs</p>
+    <h2 class="mt-3 text-3xl font-black text-white">The system is creating drag</h2>
+    <ul class="mt-6 grid gap-3 text-slate-300">
+      {entity.painPoints.map((item) => <li class="flex gap-3"><span aria-hidden="true" class="mt-1 text-green-300">●</span><span>{item}</span></li>)}
+    </ul>
+  </article>
+</section>
+
+<section aria-labelledby="outcomes-heading" class="border-y border-white/10 bg-white/[0.025]">
+  <div class="mx-auto max-w-7xl px-6 py-20">
+    <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Better operating outcomes</p>
+    <h2 id="outcomes-heading" class="mt-3 max-w-3xl text-3xl font-black text-white md:text-4xl">What should improve when the system is designed well</h2>
+    <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {entity.outcomes.map((item) => <div class="rounded-3xl border border-white/10 bg-slate-950 p-6"><p class="font-bold leading-7 text-slate-200">{item}</p></div>)}
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="approach-heading" class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[0.85fr_1.15fr]">
+  <div>
+    <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">The Barons approach</p>
+    <h2 id="approach-heading" class="mt-3 text-3xl font-black text-white md:text-4xl">Design the operating system before adding more software.</h2>
+    <p class="mt-5 leading-8 text-slate-300">We begin with the business, the people, and the process. Technology supports the design—it does not replace the thinking.</p>
+  </div>
+  <ol class="grid gap-4">
+    {entity.approach.map((item, index) => (
+      <li class="grid grid-cols-[2.75rem_1fr] gap-4 rounded-3xl border border-white/10 bg-white/[0.03] p-5">
+        <span class="flex h-11 w-11 items-center justify-center rounded-full bg-green-300 font-black text-slate-950">{index + 1}</span>
+        <p class="self-center font-bold leading-7 text-slate-200">{item}</p>
+      </li>
+    ))}
+  </ol>
+</section>
+
+{entity.integrations && entity.integrations.length > 0 && (
+  <section aria-labelledby="integrations-heading" class="mx-auto max-w-7xl px-6 pb-20">
+    <div class="rounded-[2rem] border border-white/10 bg-slate-900 p-7 md:p-10">
+      <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Platform context</p>
+      <h2 id="integrations-heading" class="mt-3 text-3xl font-black text-white">Platforms may include</h2>
+      <p class="mt-4 max-w-3xl leading-7 text-slate-300">These are tools Barons may evaluate or connect within this solution. The right recommendation depends on the operating requirements—not a universal software winner.</p>
+      <ul class="mt-7 flex flex-wrap gap-3">
+        {entity.integrations.map((item) => <li class="rounded-full border border-white/10 bg-slate-950 px-4 py-2 text-sm font-bold text-slate-200">{item}</li>)}
+      </ul>
+    </div>
+  </section>
+)}
+
+<section aria-labelledby="questions-heading" class="mx-auto max-w-5xl px-6 pb-20">
+  <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Questions people ask</p>
+  <h2 id="questions-heading" class="mt-3 text-3xl font-black text-white md:text-4xl">Clear answers before a sales conversation</h2>
+  <div class="mt-8 grid gap-4">
+    {entity.questions.map((item) => (
+      <article class="rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:p-7">
+        <h3 class="text-xl font-black text-white">{item.question}</h3>
+        <p class="mt-3 leading-8 text-slate-300">{item.answer}</p>
+      </article>
+    ))}
+  </div>
+  <p class="mt-6 text-sm text-slate-500">Content reviewed {entity.lastReviewed}.</p>
+</section>
+
+<section aria-labelledby="authority-cta-heading" class="mx-auto max-w-7xl px-6 pb-24">
+  <div class="rounded-[2rem] border border-green-300/20 bg-green-300 p-8 text-slate-950 md:p-12">
+    <p class="text-sm font-black uppercase tracking-[0.22em]">The next useful step</p>
+    <h2 id="authority-cta-heading" class="mt-3 max-w-3xl text-3xl font-black md:text-5xl">Start with the business problem—not the software demo.</h2>
+    <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-800">Tell us what is messy, stuck, growing, breaking, or about to change. We will help you identify the right next conversation.</p>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href={entity.primaryCta.href} class="rounded-full bg-slate-950 px-6 py-3 font-black text-white">{entity.primaryCta.label}</a>
+      <a href={entity.secondaryCta.href} class="rounded-full border-2 border-slate-950 px-6 py-3 font-black text-slate-950">{entity.secondaryCta.label}</a>
+    </div>
+  </div>
+</section>
