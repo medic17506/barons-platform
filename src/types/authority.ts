@@ -1,6 +1,11 @@
 export type AuthorityEntityType =
   | 'solution'
-  | 'platform'
+  | 'platform-partner'
+  | 'product'
+  | 'edition'
+  | 'service'
+  | 'integration'
+  | 'policy'
   | 'comparison'
   | 'industry'
   | 'franchise'
@@ -8,6 +13,15 @@ export type AuthorityEntityType =
   | 'resource';
 
 export type AuthorityStatus = 'draft' | 'review' | 'published';
+export type SupportConfidence = 'recommended' | 'supported' | 'legacy' | 'retired';
+export type RecommendationStrength = 'required' | 'preferred' | 'compatible' | 'supported' | 'legacy' | 'not-recommended';
+export type PurchaseBehavior =
+  | 'lead-only'
+  | 'quote-required'
+  | 'schedule-consultation'
+  | 'referral'
+  | 'ecommerce'
+  | 'client-portal';
 
 export interface AuthorityLink {
   label: string;
@@ -23,6 +37,21 @@ export interface AuthorityQuestion {
 export interface AuthorityCta {
   label: string;
   href: string;
+}
+
+export interface IntentOptions {
+  start: boolean;
+  compare: boolean;
+  design: boolean;
+}
+
+export interface CommerceOptions {
+  purchaseBehavior: PurchaseBehavior;
+  ctaLabel?: string;
+  destination?: string;
+  futureBehavior?: PurchaseBehavior;
+  owner?: string;
+  note?: string;
 }
 
 export interface AuthorityEntity {
@@ -48,6 +77,10 @@ export interface AuthorityEntity {
   relatedResources?: readonly string[];
   primaryCta: AuthorityCta;
   secondaryCta: AuthorityCta;
+  intent?: IntentOptions;
+  commerce?: CommerceOptions;
+  confidence?: SupportConfidence;
+  recommendationStrength?: RecommendationStrength;
   seoTitle: string;
   seoDescription: string;
   schemaType: 'Service' | 'SoftwareApplication' | 'Article' | 'ProfessionalService';
@@ -61,7 +94,7 @@ export type SolutionEntity = AuthorityEntity & {
 };
 
 export type PlatformEntity = AuthorityEntity & {
-  type: 'platform';
+  type: 'platform-partner' | 'product' | 'edition';
   schemaType: 'SoftwareApplication';
   vendorName: string;
   category: string;
@@ -69,7 +102,12 @@ export type PlatformEntity = AuthorityEntity & {
 
 export const authorityRoutes: Record<AuthorityEntityType, string> = {
   solution: '/solutions',
-  platform: '/platforms',
+  'platform-partner': '/partners',
+  product: '/platforms',
+  edition: '/platforms',
+  service: '/services',
+  integration: '/integrations',
+  policy: '/standards',
   comparison: '/compare',
   industry: '/industries',
   franchise: '/franchises',
