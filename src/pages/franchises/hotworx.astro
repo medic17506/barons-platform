@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Wave3Page from '../../components/authority/Wave3Page.astro';
+import { hotworxEntity } from '../../data/authority/wave3';
+import { hotworxPolicy } from '../../data/authority/policies';
+---
+
+<Layout title={hotworxEntity.seoTitle} description={hotworxEntity.seoDescription}>
+  <main id="main-content">
+    <Wave3Page entity={hotworxEntity} policy={hotworxPolicy} />
+  </main>
+</Layout>
