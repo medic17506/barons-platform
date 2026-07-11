@@ -1,0 +1,108 @@
+---
+import type { PlatformEntity } from '../../types/authority';
+import PageHero from '../sections/PageHero.astro';
+import ProductCta from '../commerce/ProductCta.astro';
+
+interface Props {
+  entity: PlatformEntity;
+}
+
+const { entity } = Astro.props;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': entity.schemaType,
+  name: entity.title,
+  description: entity.description,
+  brand: entity.schemaType === 'SoftwareApplication' ? { '@type': 'Brand', name: entity.vendorName } : undefined,
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+{entity.parentHref && entity.parentLabel && (
+  <nav aria-label="Breadcrumb" class="mx-auto max-w-7xl px-6 pt-8">
+    <ol class="flex flex-wrap items-center gap-2 text-sm text-slate-400">
+      <li><a class="hover:text-green-300" href="/">Home</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a class="hover:text-green-300" href={entity.parentHref}>{entity.parentLabel}</a></li>
+      <li aria-hidden="true">/</li>
+      <li aria-current="page" class="text-slate-200">{entity.title}</li>
+    </ol>
+  </nav>
+)}
+
+<PageHero eyebrow={entity.eyebrow} title={entity.title} description={entity.description} />
+
+<section class="mx-auto max-w-7xl px-6 pb-8">
+  <ProductCta entity={entity} />
+</section>
+
+{entity.mandateNotice && (
+  <section aria-labelledby="mandate-heading" class="mx-auto max-w-7xl px-6 pb-12">
+    <div class="rounded-3xl border border-amber-300/30 bg-amber-300/[0.08] p-6 md:p-8">
+      <p class="text-sm font-black uppercase tracking-[0.22em] text-amber-200">Franchise and operating standards</p>
+      <h2 id="mandate-heading" class="mt-3 text-2xl font-black text-white">Requirements come before recommendations.</h2>
+      <p class="mt-4 max-w-4xl leading-8 text-slate-200">{entity.mandateNotice}</p>
+    </div>
+  </section>
+)}
+
+<section aria-labelledby="fit-heading" class="mx-auto grid max-w-7xl gap-8 px-6 py-12 lg:grid-cols-[0.8fr_1.2fr]">
+  <div>
+    <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">How this reduces chaos</p>
+    <h2 id="fit-heading" class="mt-3 text-3xl font-black text-white md:text-4xl">{entity.promise}</h2>
+    <p class="mt-5 leading-8 text-slate-300">{entity.chaosStatement}</p>
+  </div>
+  <div class="grid gap-4 md:grid-cols-2">
+    {entity.outcomes.map((item) => <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6"><p class="font-bold leading-7 text-slate-200">{item}</p></div>)}
+  </div>
+</section>
+
+{entity.children && entity.children.length > 0 && (
+  <section aria-labelledby="children-heading" class="border-y border-white/10 bg-white/[0.025]">
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Explore the hierarchy</p>
+      <h2 id="children-heading" class="mt-3 text-3xl font-black text-white md:text-4xl">Choose the product path that matches the requirement.</h2>
+      <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {entity.children.map((child) => (
+          <a href={child.href} class="group rounded-3xl border border-white/10 bg-slate-950 p-6 transition hover:-translate-y-1 hover:border-green-300/40">
+            {child.badge && <p class="text-xs font-black uppercase tracking-[0.2em] text-green-300">{child.badge}</p>}
+            <h3 class="mt-3 text-2xl font-black text-white">{child.title}</h3>
+            <p class="mt-4 leading-7 text-slate-400">{child.description}</p>
+            <p class="mt-6 text-sm font-bold text-green-300">Explore {child.title} →</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<section aria-labelledby="approach-heading" class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[0.8fr_1.2fr]">
+  <div>
+    <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">The Barons approach</p>
+    <h2 id="approach-heading" class="mt-3 text-3xl font-black text-white md:text-4xl">Simple when you know. Careful when you do not.</h2>
+    <p class="mt-5 leading-8 text-slate-300">Visitors who already know the required product can move directly into intake. Everyone else can compare credible options or design the broader operating system.</p>
+  </div>
+  <ol class="grid gap-4">
+    {entity.approach.map((item, index) => (
+      <li class="grid grid-cols-[2.75rem_1fr] gap-4 rounded-3xl border border-white/10 bg-white/[0.03] p-5">
+        <span class="flex h-11 w-11 items-center justify-center rounded-full bg-green-300 font-black text-slate-950">{index + 1}</span>
+        <p class="self-center font-bold leading-7 text-slate-200">{item}</p>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<section aria-labelledby="questions-heading" class="mx-auto max-w-5xl px-6 pb-24">
+  <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Questions people ask</p>
+  <h2 id="questions-heading" class="mt-3 text-3xl font-black text-white md:text-4xl">Clear answers before the next step</h2>
+  <div class="mt-8 grid gap-4">
+    {entity.questions.map((item) => (
+      <article class="rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:p-7">
+        <h3 class="text-xl font-black text-white">{item.question}</h3>
+        <p class="mt-3 leading-8 text-slate-300">{item.answer}</p>
+      </article>
+    ))}
+  </div>
+  <p class="mt-6 text-sm text-slate-500">Content reviewed {entity.lastReviewed}.</p>
+</section>
