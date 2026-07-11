@@ -1,0 +1,11 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import PlatformHierarchyPage from '../../../components/authority/PlatformHierarchyPage.astro';
+import { quickBooksOnline } from '../../../data/authority/intuit';
+---
+
+<Layout title={quickBooksOnline.seoTitle} description={quickBooksOnline.seoDescription} canonical="/platforms/quickbooks-online">
+  <main id="main-content">
+    <PlatformHierarchyPage entity={quickBooksOnline} />
+  </main>
+</Layout>
