@@ -5,7 +5,7 @@ This document is the source of truth for public website forms and their intended
 | ID | Form | Zoho application | Website route | Status | Purpose |
 |---|---|---|---|---|---|
 | WF-001 | Strategy Session | Zoho Forms | `/start` | Live | Primary website conversion and discovery intake before booking. |
-| WF-002 | Contact Barons | Zoho Forms | `/contact` | Planned | General sales, partnership, media, billing, careers, and other inquiries. |
+| WF-002 | Contact Barons | Zoho Forms | `/contact` | Live | General sales, support, partnership, media, billing, careers, ASG, vendor, and other inquiries. |
 | WF-003 | BOSS Assessment | Zoho Forms / custom workflow | `/boss-assessment` | Design | Business operating system maturity assessment and qualified lead generation. |
 | WF-004 | Support Request | Zoho Desk / Zoho Forms | `/support` | Planned | Existing-client support intake and routing. |
 | WF-005 | Software Finder | Zoho Forms / custom workflow | `/software-finder` | Planned | Guided software recommendation based on business requirements. |
@@ -22,6 +22,24 @@ This document is the source of truth for public website forms and their intended
 - Referrer tracking: enabled by the website component
 - Primary CTA language: `Start a Strategy Session`
 - Post-submission next step: continue to the appropriate Zoho Bookings service
+
+## WF-002 production details
+
+- Public form URL: `https://forms.zohopublic.com/baronsinc1/form/ContactUs/formperma/VEEZlxOLa1tSQN8ijb2SUDF_XcFTsyaLFsLexsc9XCk`
+- Website route: `/contact`
+- Embedded through: `src/components/forms/ContactForm.astro`
+- Referrer tracking: enabled by the website component
+- Routing ownership:
+  - New Business — Dakota
+  - Existing Client Support — Dakota
+  - Billing — Sharon
+  - Partnership Opportunity — Brandon
+  - Vendor Inquiry — Brandon
+  - ASG Interest — Kylee
+  - Speaking Request — Brandon
+  - Media — Brandon
+  - General Question — Brandon
+  - Careers — Brandon
 
 ## Standards
 
