@@ -83,7 +83,7 @@ export interface AuthorityEntity {
   recommendationStrength?: RecommendationStrength;
   seoTitle: string;
   seoDescription: string;
-  schemaType: 'Service' | 'SoftwareApplication' | 'Article' | 'ProfessionalService';
+  schemaType: 'Service' | 'SoftwareApplication' | 'Article' | 'ProfessionalService' | 'Organization';
   status: AuthorityStatus;
   lastReviewed: string;
 }
@@ -93,16 +93,29 @@ export type SolutionEntity = AuthorityEntity & {
   schemaType: 'Service';
 };
 
+export interface HierarchyChild {
+  title: string;
+  slug: string;
+  href: string;
+  description: string;
+  badge?: string;
+}
+
 export type PlatformEntity = AuthorityEntity & {
   type: 'platform-partner' | 'product' | 'edition';
-  schemaType: 'SoftwareApplication';
+  schemaType: 'SoftwareApplication' | 'Organization';
   vendorName: string;
   category: string;
+  parentSlug?: string;
+  parentHref?: string;
+  parentLabel?: string;
+  children?: readonly HierarchyChild[];
+  mandateNotice?: string;
 };
 
 export const authorityRoutes: Record<AuthorityEntityType, string> = {
   solution: '/solutions',
-  'platform-partner': '/partners',
+  'platform-partner': '/platform-partners',
   product: '/platforms',
   edition: '/platforms',
   service: '/services',
