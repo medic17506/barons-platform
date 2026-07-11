@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+---
+
+<Layout title="Industry Business Systems | Barons" description="Industry-specific accounting, technology, reporting, and operational systems designed around how businesses actually work.">
+  <main id="main-content">
+    <PageHero eyebrow="Industries" title="Business systems shaped around real operating environments." description="Industry pages connect recurring operational problems to practical accounting, payroll, inventory, payments, reporting, and technology decisions." />
+    <section class="mx-auto max-w-7xl px-6 py-20">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <a href="/industries/construction" class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 transition hover:-translate-y-1 hover:border-green-300/40">
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Published</p>
+          <h2 class="mt-4 text-3xl font-black text-white">Construction</h2>
+          <p class="mt-4 leading-8 text-slate-300">Job costing, labor, equipment, inventory, reporting, project billing, and cash-flow systems for contractors and field teams.</p>
+          <p class="mt-6 font-bold text-green-300">Explore construction systems →</p>
+        </a>
+        {['Professional Services', 'Retail', 'Manufacturing', 'Healthcare', 'Hospitality', 'Nonprofits', 'Multi-Entity Organizations'].map((industry) => (
+          <div class="rounded-[2rem] border border-dashed border-white/15 p-8">
+            <p class="text-sm font-black uppercase tracking-[0.22em] text-slate-500">In development</p>
+            <h2 class="mt-4 text-2xl font-black text-white">{industry}</h2>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
