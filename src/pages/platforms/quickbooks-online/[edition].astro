@@ -1,0 +1,20 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import PlatformHierarchyPage from '../../../components/authority/PlatformHierarchyPage.astro';
+import { quickBooksOnlineEditions } from '../../../data/authority/intuit';
+
+export function getStaticPaths() {
+  return quickBooksOnlineEditions.map((edition) => ({
+    params: { edition: edition.slug },
+    props: { edition },
+  }));
+}
+
+const { edition } = Astro.props;
+---
+
+<Layout title={edition.seoTitle} description={edition.seoDescription} canonical={`/platforms/quickbooks-online/${edition.slug}`}>
+  <main id="main-content">
+    <PlatformHierarchyPage entity={edition} />
+  </main>
+</Layout>
