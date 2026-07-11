@@ -34,7 +34,9 @@ const schema = {
 <PageHero eyebrow={entity.eyebrow} title={entity.title} description={entity.description} />
 
 <section class="mx-auto max-w-7xl px-6 pb-8">
-  <ProductCta entity={entity} />
+  <div class="rounded-[2rem] bg-green-300 p-6 text-slate-950 md:p-8">
+    <ProductCta entity={entity} />
+  </div>
 </section>
 
 {entity.mandateNotice && (
