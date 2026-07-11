@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import ButtonLink from '../components/ui/ButtonLink.astro';
+---
+
+<Layout title="Global Reach. Gulf Coast Roots. | Barons, Inc." description="Barons is a Mobile Gulf Coast business serving clients nationally and internationally while bringing outside revenue, expertise, and opportunity home to the region.">
+  <main id="main-content">
+    <PageHero
+      eyebrow="Mobile Gulf Coast"
+      title="Global reach. Gulf Coast roots."
+      description="Barons was built in the Mobile area and has spent 24 years proving that nationally respected business technology expertise can grow from the Gulf Coast and bring opportunity back home."
+    />
+
+    <section aria-labelledby="impact-heading" class="mx-auto max-w-7xl px-6 py-20">
+      <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Economic impact</p>
+          <h2 id="impact-heading" class="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">We export expertise and bring revenue home.</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-300">When Barons serves a business outside the region, that relationship brings new revenue into the Mobile Gulf Coast economy. It supports local employment, local purchasing, local professional relationships, and the community where our people live and work.</p>
+          <p class="mt-5 text-lg leading-8 text-slate-300">Our clients do not have to choose between local relationships and national experience. They can work with a Gulf Coast company connected to businesses, franchises, technology platforms, and professional networks across the country and around the world.</p>
+        </div>
+
+        <dl class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+            <dt class="text-sm font-bold text-slate-400">Founded</dt>
+            <dd class="mt-2 text-3xl font-black text-green-300">June 2002</dd>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+            <dt class="text-sm font-bold text-slate-400">Experience</dt>
+            <dd class="mt-2 text-3xl font-black text-green-300">24 years</dd>
+          </div>
+          <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+            <dt class="text-sm font-bold text-slate-400">Reach</dt>
+            <dd class="mt-2 text-3xl font-black text-green-300">9 countries</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-slate-900/60">
+      <div class="mx-auto max-w-7xl px-6 py-20">
+        <div class="max-w-3xl">
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Rooted here</p>
+          <h2 class="mt-4 text-4xl font-black tracking-tight text-white">Part of the Mobile business community.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-300">Barons is a member of the Mobile Chamber and participates in the business, civic, and professional life of the region. Our national and global relationships strengthen what we can offer locally, while our Gulf Coast perspective keeps the work practical, resilient, and human.</p>
+        </div>
+
+        <div class="mt-12 grid gap-5 md:grid-cols-3">
+          {[
+            ['Local relationships', 'Business owners get a nearby partner who understands the region and remains accessible after implementation.'],
+            ['National-level capability', 'Our platform, franchise, accounting, payments, CRM, and automation network reaches far beyond the Gulf Coast.'],
+            ['Opportunity brought home', 'Outside client revenue supports local people, vendors, organizations, and long-term regional growth.'],
+          ].map(([title, description]) => (
+            <article class="rounded-3xl border border-white/10 bg-slate-950 p-7">
+              <h3 class="text-2xl font-black text-white">{title}</h3>
+              <p class="mt-4 leading-7 text-slate-300">{description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1fr_auto] lg:items-center">
+      <div class="max-w-3xl">
+        <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Local partner. Wider perspective.</p>
+        <h2 class="mt-4 text-4xl font-black tracking-tight text-white">Looking for Gulf Coast guidance backed by national experience?</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-300">Bring us the problem. We will help you find the right path, whether the answer is already in our hands or somewhere in the network we have built since 2002.</p>
+      </div>
+      <ButtonLink href="/start">Start a Strategy Session <span aria-hidden="true">→</span></ButtonLink>
+    </section>
+  </main>
+</Layout>
