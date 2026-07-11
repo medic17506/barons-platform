@@ -1,24 +1,26 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/sections/PageHero.astro';
+import ContactForm from '../../components/forms/ContactForm.astro';
 ---
-<Layout title="Contact | Barons, Inc." description="Contact Barons to talk with a human about accounting systems, payroll, payments, CRM, reporting, automation, or franchise support.">
+
+<Layout title="Contact Barons | Barons, Inc." description="Contact Barons for new business, client support, billing, partnerships, vendors, ASG inquiries, speaking, media, careers, or general questions.">
   <main id="main-content">
-    <PageHero eyebrow="Contact" title="Start with the business problem." description="Tell us what is messy, stuck, growing, breaking, or about to change. We’ll help you figure out the right next step." />
-    <section class="mx-auto grid max-w-7xl gap-8 px-6 py-20 lg:grid-cols-[0.9fr_1.1fr]">
-      <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-7">
-        <h2 class="text-2xl font-black">What happens next?</h2>
-        <p class="mt-4 leading-7 text-slate-400">A real person reviews the request, asks better questions, and helps decide whether you need a platform, cleanup, migration, reporting, workflow, or support conversation.</p>
-      </div>
-      <form class="rounded-3xl border border-white/10 bg-slate-900 p-7">
-        <div class="grid gap-5">
-          <label class="grid gap-2 text-sm font-bold text-slate-300">Name <input class="rounded-xl border border-white/10 bg-slate-950 px-4 py-3 text-white" placeholder="Your name" /></label>
-          <label class="grid gap-2 text-sm font-bold text-slate-300">Email <input class="rounded-xl border border-white/10 bg-slate-950 px-4 py-3 text-white" placeholder="you@example.com" /></label>
-          <label class="grid gap-2 text-sm font-bold text-slate-300">What do you need help with? <textarea class="min-h-32 rounded-xl border border-white/10 bg-slate-950 px-4 py-3 text-white" placeholder="Accounting, payroll, CRM, Zoho, QuickBooks, franchise support, reporting, automation..."></textarea></label>
-          <button class="rounded-full bg-green-400 px-6 py-3 font-black text-slate-950">Send Message</button>
-          <p class="text-xs leading-6 text-slate-500">Zoho form embed or CRM webform goes here next. This static version is a design placeholder.</p>
-        </div>
-      </form>
+    <PageHero
+      eyebrow="Contact"
+      title="Start with the business problem."
+      description="Tell us what is messy, stuck, growing, breaking, or about to change. We will route your message to the right person and help you identify the next step."
+    />
+
+    <section class="mx-auto grid max-w-7xl gap-8 px-6 py-20 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+      <aside class="rounded-3xl border border-white/10 bg-white/[0.03] p-7">
+        <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">What happens next</p>
+        <h2 class="mt-3 text-3xl font-black text-white">A real person reviews your message.</h2>
+        <p class="mt-4 leading-7 text-slate-300">The reason you select determines who receives the inquiry. New business and client support go to Dakota, billing goes to Sharon, ASG interest goes to Kylee, and partnership, vendor, speaking, media, general, and career inquiries go to Brandon.</p>
+        <p class="mt-4 leading-7 text-slate-300">We will ask follow-up questions only when needed and help move the request into the right conversation, support process, or next step.</p>
+      </aside>
+
+      <ContactForm />
     </section>
   </main>
 </Layout>
