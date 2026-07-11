@@ -4,6 +4,7 @@ import PageHero from '../sections/PageHero.astro';
 import ProductCta from '../commerce/ProductCta.astro';
 import TrustSignals from './TrustSignals.astro';
 import RelatedContent from './RelatedContent.astro';
+import BrandLogo from './BrandLogo.astro';
 
 interface Props {
   entity: PlatformEntity;
@@ -16,6 +17,7 @@ const schema = {
   name: entity.title,
   description: entity.description,
   brand: entity.schemaType === 'SoftwareApplication' ? { '@type': 'Brand', name: entity.vendorName } : undefined,
+  logo: entity.logo?.src,
 };
 ---
 
@@ -33,7 +35,10 @@ const schema = {
   </nav>
 )}
 
-<PageHero eyebrow={entity.eyebrow} title={entity.title} description={entity.description} />
+<section class="mx-auto grid max-w-7xl gap-6 px-6 pt-8 md:grid-cols-[auto_1fr] md:items-center">
+  <BrandLogo brand={entity.title} asset={entity.logo} size="lg" />
+  <PageHero eyebrow={entity.eyebrow} title={entity.title} description={entity.description} />
+</section>
 
 <section class="mx-auto max-w-7xl px-6 pb-8">
   <div class="rounded-[2rem] bg-green-300 p-6 text-slate-950 md:p-8">
@@ -70,8 +75,13 @@ const schema = {
       <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {entity.children.map((child) => (
           <a href={child.href} class="group rounded-3xl border border-white/10 bg-slate-950 p-6 transition hover:-translate-y-1 hover:border-green-300/40">
-            {child.badge && <p class="text-xs font-black uppercase tracking-[0.2em] text-green-300">{child.badge}</p>}
-            <h3 class="mt-3 text-2xl font-black text-white">{child.title}</h3>
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                {child.badge && <p class="text-xs font-black uppercase tracking-[0.2em] text-green-300">{child.badge}</p>}
+                <h3 class="mt-3 text-2xl font-black text-white">{child.title}</h3>
+              </div>
+              <BrandLogo brand={child.title} asset={child.logo} size="sm" />
+            </div>
             <p class="mt-4 leading-7 text-slate-400">{child.description}</p>
             <p class="mt-6 text-sm font-bold text-green-300">Explore {child.title} →</p>
           </a>
