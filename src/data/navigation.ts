@@ -12,6 +12,7 @@ export const footerNavigation = [
   { title: 'Home', href: '/' },
   { title: 'Who We Help', href: '/who-we-help' },
   { title: 'Franchise Support', href: '/franchise-support' },
+  { title: 'Remote Support', href: '/support' },
   { title: 'Mobile Gulf Coast', href: '/mobile-gulf-coast' },
   { title: 'Start a Strategy Session', href: '/start' },
   { title: 'Contact', href: '/contact' },
