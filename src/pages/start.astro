@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import StrategySessionForm from '../components/forms/StrategySessionForm.astro';
+---
+
+<Layout title="Schedule a Strategy Session | Barons, Inc." description="Tell Barons what is not working in your business systems and schedule a human-guided strategy session with an experienced advisor.">
+  <main id="main-content">
+    <PageHero
+      eyebrow="Start here"
+      title="You do not have to figure out the next system alone."
+      description="Tell us what is working, what is frustrating, and what prompted you to reach out. We will bring 24 years of real-world experience, honest recommendations, and a network built to find answers."
+    />
+
+    <div class="mx-auto max-w-7xl px-6 py-20">
+      <StrategySessionForm />
+    </div>
+  </main>
+</Layout>
