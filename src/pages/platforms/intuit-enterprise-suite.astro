@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PlatformHierarchyPage from '../../components/authority/PlatformHierarchyPage.astro';
+import { intuitEnterpriseSuite } from '../../data/authority/intuit';
+---
+
+<Layout title={intuitEnterpriseSuite.seoTitle} description={intuitEnterpriseSuite.seoDescription} canonical="/platforms/intuit-enterprise-suite">
+  <main id="main-content">
+    <PlatformHierarchyPage entity={intuitEnterpriseSuite} />
+  </main>
+</Layout>
