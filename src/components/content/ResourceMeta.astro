@@ -1,0 +1,31 @@
+---
+interface Props {
+  author: string;
+  lastReviewed: string;
+  verificationStatus: string;
+  type: string;
+}
+
+const { author, lastReviewed, verificationStatus, type } = Astro.props;
+const readableType = type.replaceAll('-', ' ');
+const readableStatus = verificationStatus.replaceAll('-', ' ');
+---
+
+<dl class="grid gap-4 rounded-3xl border border-white/10 bg-white/[0.03] p-6 text-sm sm:grid-cols-2 lg:grid-cols-4">
+  <div>
+    <dt class="font-bold text-slate-500">Content type</dt>
+    <dd class="mt-1 capitalize text-slate-200">{readableType}</dd>
+  </div>
+  <div>
+    <dt class="font-bold text-slate-500">Written by</dt>
+    <dd class="mt-1 text-slate-200">{author}</dd>
+  </div>
+  <div>
+    <dt class="font-bold text-slate-500">Last reviewed</dt>
+    <dd class="mt-1 text-slate-200"><time datetime={lastReviewed}>{lastReviewed}</time></dd>
+  </div>
+  <div>
+    <dt class="font-bold text-slate-500">Verification</dt>
+    <dd class="mt-1 capitalize text-green-300">{readableStatus}</dd>
+  </div>
+</dl>
