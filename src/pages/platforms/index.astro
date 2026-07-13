@@ -1,14 +1,33 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/sections/PageHero.astro';
+import BrandLogo from '../../components/entities/BrandLogo.astro';
 import { platforms } from '../../data/solutions';
+import { getBrandAsset } from '../../data/brandAssets';
 ---
+
 <Layout title="Platforms | Barons, Inc." description="Barons supports QuickBooks, Xero, Zoho One, Lightspeed, Cin7, Avalara, Bill360, Databox, Fathom, and more.">
   <main id="main-content">
     <PageHero eyebrow="Platforms" title="Vendor-aware, but never vendor-blind." description="There is no universal best platform. There is only the best fit for the business, team, requirements, budget, and growth path." />
+
     <section class="mx-auto max-w-7xl px-6 py-20">
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {platforms.map((platform) => <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-5 font-bold text-slate-200">{platform}</div>)}
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {platforms.map((platform) => {
+          const brand = getBrandAsset(platform);
+          const content = (
+            <article class="group h-full rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition hover:border-green-300/40 hover:bg-white/[0.05]">
+              <BrandLogo name={platform} size="md" />
+              <p class="mt-4 text-sm leading-6 text-slate-400">Platform guidance, implementation context, integrations, and fit considerations.</p>
+              {brand.href && <span class="mt-5 inline-flex text-sm font-black text-green-300">Explore platform <span class="ml-2" aria-hidden="true">→</span></span>}
+            </article>
+          );
+
+          return brand.href ? (
+            <a href={brand.href} class="block rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-green-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950">
+              {content}
+            </a>
+          ) : content;
+        })}
       </div>
     </section>
   </main>
