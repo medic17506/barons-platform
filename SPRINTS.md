@@ -16,11 +16,12 @@
 | 4 | Reusable public-site sections | Complete |
 | 5 | Public site, local impact, and strategy intake | Complete |
 | 6 | Contact and Zoho form integration | Complete |
-| 7 | Authority Engine and Knowledge Graph | Implementation complete — verification pending |
-| 8 | ASG Network | Not started |
-| 9 | Knowledge Base | Not started |
-| 10 | Client Portal | Not started |
-| 11 | AI Integrations | Not started |
+| 7 | Authority Engine and Knowledge Graph | Complete |
+| 8 | Public Platform and Ecosystem Expansion | Complete |
+| 9 | Content and Media Engine | Next |
+| 10 | Client Portal | Planned |
+| 11 | AI Integrations | Planned |
+| 12 | Revenue Engine | Planned |
 
 ## Sprint 7 — Authority Engine and Knowledge Graph
 
@@ -28,7 +29,7 @@
 
 Build the reusable content architecture that establishes Barons as an authority for Business Operating Systems, accounting technology, automation, and franchise support.
 
-### Completed implementation
+### Completed
 
 - Typed Knowledge Object model
 - Solution Authority pages
@@ -37,39 +38,101 @@ Build the reusable content architecture that establishes Barons as an authority 
 - Intuit Enterprise Suite modeled as a sibling product
 - Intent gateway: Start, Compare, Design
 - Commerce Abstraction Layer with lead generation as the current behavior
-- Franchise mandate priority in decision guidance
 - Evidence-backed Trust Engine
-- Relationship-driven Related Content component
+- Relationship-driven internal linking
 - Franchise Policy model and Policy Summary component
-- Verified HOTWORX policy data based on current Barons operating knowledge
-- Entity-specific structured data and breadcrumbs
-- `AUTHORITY_ENGINE.md`
-- `COMMERCE_ARCHITECTURE.md`
-- `KNOWLEDGE_GRAPH.md`
-- `KNOWLEDGE_OBJECT_BUILDER.md`
+- Structured data, breadcrumbs, review dates, and documentation
 
-### Sprint 7 platform contracts
+## Sprint 8 — Public Platform and Ecosystem Expansion
 
-1. Model reality first. Render pages second.
-2. Capture knowledge once. Publish it everywhere.
-3. Presentation never owns business logic.
-4. Franchise requirements take priority over general recommendations.
-5. Unknown franchise standards remain unknown until verified.
-6. No authority page is created without a Knowledge Object or documented exception.
+### Objective
 
-### Remaining verification
+Populate and extend the public platform with reusable solution, platform, franchise, industry, support, trust, and brand-story structures.
 
-- Run the production Astro build locally
-- Review generated routes
-- Test representative pages on desktop and mobile
-- Confirm focus states and heading order
-- Check related links for routes that are intentionally reserved for later sprints
-- Review schema output in the generated HTML
-- Merge the verified branch into `main`
+### Completed
 
-### Sprint 7 definition of done
+#### Business operations
 
-Sprint 7 is complete after the local build passes and representative Authority Engine pages are visually verified. Population of additional partners, products, franchises, industries, comparisons, and knowledge articles belongs to later sprints.
+- Accounting
+- Payroll
+- Merchant Services
+- Point of Sale
+- Inventory
+- CRM
+- Automation
+- Reporting
+- AP Automation
+- Sales Tax
+- Business Intelligence and AI foundations
+
+#### Platform ecosystem
+
+- Intuit hierarchy
+- QuickBooks Online editions
+- Intuit Enterprise Suite
+- Technology-partner brand asset system
+- Commerce-ready CTA abstraction
+- Relationship confidence and authority-level rules
+
+#### Franchise and industry intelligence
+
+- Reusable franchise and industry renderer
+- HOTWORX reference implementation
+- Verified franchise-policy model
+- Construction industry reference implementation
+- Franchise and industry hubs
+- Unknown franchise requirements remain unpublished until verified
+
+#### Trust, support, and brand
+
+- Evidence-backed trust signals
+- Brand asset registry and provenance rules
+- Zoho Assist remote-support page
+- About-section architecture
+- Leadership-profile architecture for Brandon Morris, Sharon McCauley, Kylee Williams, Dakota Williams, and Carol Robinson
+- Community leadership, trusted-advisor, success-story, and legacy-story frameworks
+
+### Sprint 8 outcomes
+
+- The public platform is organized around business problems and operating functions rather than a software catalog.
+- Strategic partners are prioritized over merely supported or external systems.
+- Franchise requirements are separated from Barons recommendations.
+- Authority claims are limited to knowledge and experience Barons can support.
+- Support, community, and human expertise are treated as first-class parts of the client journey.
+
+## Sprint 9 — Content and Media Engine
+
+### Objective
+
+Populate the platform with authoritative, reusable content that can support the website, AI search, video, podcasting, email, social media, speaking, sales enablement, and the future client portal.
+
+### Primary deliverables
+
+- Cornerstone guides
+- Frequently asked questions
+- Comparison pages
+- Operational playbooks
+- Legacy stories
+- Client success stories
+- Local business and leadership interviews
+- Podcast episode pages and transcripts
+- Short-form video scripts and embeds
+- Lead magnets and downloads
+- Media-to-Knowledge-Object relationships
+- Content review, ownership, and update workflows
+
+### Sprint 9 operating rules
+
+1. Education before sales.
+2. One source of truth per claim.
+3. Every major asset should support reuse across multiple channels.
+4. Do not claim expertise that Barons has not earned.
+5. Franchise information must distinguish verified requirements, observed practices, and Barons guidance.
+6. Content should answer a real business question and identify the next useful action.
+
+### Sprint 9 definition of done
+
+Sprint 9 is complete when the content system can consistently publish, connect, review, and repurpose authoritative knowledge across the public platform and media channels without inventing new page architecture for each asset.
 
 ## Project principles
 
