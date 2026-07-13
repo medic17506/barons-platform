@@ -1,0 +1,35 @@
+---
+import { getBrandAsset } from '../../data/brandAssets';
+
+interface Props {
+  name: string;
+  size?: 'sm' | 'md' | 'lg';
+  showName?: boolean;
+}
+
+const { name, size = 'md', showName = true } = Astro.props;
+const brand = getBrandAsset(name);
+const sizeClasses = {
+  sm: 'h-8 w-8',
+  md: 'h-12 w-12',
+  lg: 'h-16 w-16',
+};
+const initials = name
+  .split(/\s+/)
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((word: string) => word[0])
+  .join('')
+  .toUpperCase();
+---
+
+<div class="flex min-w-0 items-center gap-3">
+  <div class:list={['flex shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white p-2 shadow-sm', sizeClasses[size]]}>
+    {brand.logo ? (
+      <img src={brand.logo} alt="" class:list={['h-full w-full object-contain', brand.colorClass]} loading="lazy" />
+    ) : (
+      <span class="text-sm font-black text-slate-700" aria-hidden="true">{initials}</span>
+    )}
+  </div>
+  {showName && <span class="min-w-0 font-black text-white">{name}</span>}
+</div>
