@@ -1,15 +1,91 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/sections/PageHero.astro';
-const resources = ['Learning Center', 'Guides', 'Downloads', 'FAQs', 'Videos', 'Knowledge Base'];
+import ContentCard from '../../components/content/ContentCard.astro';
+
+const resources = (await getCollection('resources', ({ data }) => !data.draft && data.status === 'published'))
+  .sort((a, b) => new Date(b.data.publishedAt ?? b.data.lastReviewed).getTime() - new Date(a.data.publishedAt ?? a.data.lastReviewed).getTime());
+
+const contentTypes = [
+  ['Cornerstone Guides', 'Deep, evergreen explanations of the systems and decisions that shape a business.'],
+  ['Playbooks', 'Step-by-step operational guidance for decisions, implementations, and recurring work.'],
+  ['Comparisons', 'Fair evaluations of credible options, including fit, tradeoffs, and limitations.'],
+  ['FAQs', 'Direct answers to real questions from clients, operators, partners, and prospects.'],
+  ['Stories', 'The history, lessons, and client outcomes behind Barons and the businesses we serve.'],
+  ['Trusted Advisors', 'People Barons trusts across banking, accounting, legal, insurance, marketing, HR, technology, and real estate.'],
+];
+
+const labelByType: Record<string, string> = {
+  'cornerstone-guide': 'Cornerstone guide',
+  playbook: 'Playbook',
+  comparison: 'Comparison',
+  faq: 'FAQ',
+  'legacy-story': 'Legacy story',
+  'success-story': 'Success story',
+  'trusted-advisor': 'Trusted advisor',
+  'local-authority': 'Local authority',
+};
 ---
-<Layout title="Resources | Barons, Inc." description="Practical resources for business systems, accounting technology, franchise operations, and growth.">
+
+<Layout title="Business Systems Resources | Barons, Inc." description="Authoritative guides, playbooks, comparisons, FAQs, stories, and practical resources for building cleaner business operating systems.">
   <main id="main-content">
-    <PageHero eyebrow="Resources" title="Useful answers before a sales pitch." description="This area will become the home for guides, explainers, checklists, and support content that help owners make better technology decisions." />
-    <section class="mx-auto max-w-7xl px-6 py-20">
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {resources.map((resource) => <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6 text-xl font-black">{resource}</div>)}
+    <PageHero
+      eyebrow="Knowledge before sales"
+      title="Useful answers for businesses trying to operate with less chaos."
+      description="The Barons Resource Center turns real implementation experience, client questions, and verified platform knowledge into practical guidance you can use before choosing a product or starting a project."
+    />
+
+    <section aria-labelledby="featured-resources-heading" class="mx-auto max-w-7xl px-6 py-20">
+      <div class="max-w-3xl">
+        <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Published knowledge</p>
+        <h2 id="featured-resources-heading" class="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">Start with the business problem.</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-300">Each resource is connected to the same Knowledge Graph that powers Barons' solution, platform, franchise, and industry guidance. Facts are captured once, reviewed, and reused instead of rewritten from scratch.</p>
       </div>
+
+      {resources.length > 0 ? (
+        <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {resources.map((resource) => (
+            <ContentCard
+              href={`/resources/${resource.id}/`}
+              eyebrow={labelByType[resource.data.type] ?? 'Resource'}
+              title={resource.data.title}
+              description={resource.data.description}
+              meta={`Reviewed ${new Date(resource.data.lastReviewed).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="mt-10 rounded-3xl border border-white/10 bg-white/[0.03] p-7 text-slate-300">The first resource is being prepared now.</p>
+      )}
+    </section>
+
+    <section aria-labelledby="resource-types-heading" class="border-y border-white/10 bg-slate-900/60">
+      <div class="mx-auto max-w-7xl px-6 py-20">
+        <div class="max-w-3xl">
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">One knowledge system</p>
+          <h2 id="resource-types-heading" class="mt-4 text-4xl font-black tracking-tight text-white">Different formats. One governed source of truth.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-300">The library will grow deliberately. We will publish content when it is useful and supportable, not create thin archives simply to fill a navigation menu.</p>
+        </div>
+
+        <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {contentTypes.map(([title, description]) => (
+            <article class="rounded-3xl border border-white/10 bg-slate-950 p-7">
+              <h3 class="text-2xl font-black text-white">{title}</h3>
+              <p class="mt-4 leading-7 text-slate-300">{description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1fr_auto] lg:items-center">
+      <div class="max-w-3xl">
+        <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Cannot find the answer?</p>
+        <h2 class="mt-4 text-4xl font-black tracking-tight text-white">Bring us the question.</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-300">Real client questions become future FAQs, guides, videos, and training. A real person will help with the immediate problem, and the answer may help the next business too.</p>
+      </div>
+      <a class="inline-flex min-h-12 items-center justify-center rounded-full bg-green-400 px-6 py-3 font-black text-slate-950 transition hover:bg-green-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950" href="/contact">Ask Barons a question <span class="ml-2" aria-hidden="true">→</span></a>
     </section>
   </main>
 </Layout>
