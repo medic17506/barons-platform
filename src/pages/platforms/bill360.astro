@@ -1,0 +1,81 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import BrandLogo from '../../components/entities/BrandLogo.astro';
+
+const capabilities = [
+  'Payment-ready digital invoices',
+  'Automated reminders and accounts-receivable workflows',
+  'Customer payment portal, wallets, and AutoPay',
+  'Embedded B2B payment acceptance',
+  'Automatic reconciliation, including payments received outside the portal',
+  'Cash-flow and accounts-receivable visibility',
+  'QuickBooks and Xero integration',
+  'Live U.S.-based support',
+];
+
+const fits = [
+  'B2B businesses carrying meaningful accounts receivable',
+  'Teams spending too much time sending reminders and matching payments',
+  'Organizations needing better Days Sales Outstanding and aging visibility',
+  'Businesses that want customers to view invoices and pay through one portal',
+  'QuickBooks or Xero users seeking a more deliberate AR workflow',
+];
+---
+
+<Layout title="Bill360 AR Automation & B2B Payments | Barons, Inc." description="Learn where Bill360 fits inside a connected accounts-receivable, payment, and accounting system—and whether it is right for your business.">
+  <main id="main-content">
+    <PageHero eyebrow="Technology Partner · Accounts Receivable" title="Accounts receivable should not be your bottleneck." description="Bill360 connects digital invoicing, reminders, customer payments, reconciliation, and AR visibility around the needs of B2B businesses." />
+
+    <section class="mx-auto max-w-7xl px-6 py-16">
+      <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+        <div class="rounded-3xl bg-white p-8 shadow-2xl shadow-black/20">
+          <BrandLogo name="Bill360" size="lg" showName={false} />
+        </div>
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Where it fits</p>
+          <h2 class="mt-3 text-3xl font-black text-white">Between the invoice and the deposit.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-300">Accounting software records what is owed. Bill360 is designed to help B2B businesses manage the work between issuing an invoice and receiving, reconciling, and understanding the payment. It belongs inside the Payments & Cash Flow portion of a Business Operating System.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-white/[0.03]">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <div class="grid gap-12 lg:grid-cols-2">
+          <div>
+            <h2 class="text-3xl font-black text-white">What Bill360 can support</h2>
+            <ul class="mt-6 grid gap-3">
+              {capabilities.map((item) => <li class="rounded-2xl border border-white/10 bg-slate-950/50 px-5 py-4 text-slate-200">{item}</li>)}
+            </ul>
+          </div>
+          <div>
+            <h2 class="text-3xl font-black text-white">Businesses that should evaluate it</h2>
+            <ul class="mt-6 grid gap-3">
+              {fits.map((item) => <li class="rounded-2xl border border-white/10 bg-slate-950/50 px-5 py-4 text-slate-200">{item}</li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-5xl px-6 py-16">
+      <div class="rounded-3xl border border-green-300/25 bg-green-300/[0.06] p-8 sm:p-10">
+        <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Barons perspective</p>
+        <h2 class="mt-3 text-3xl font-black text-white">The question is not whether AR automation sounds useful.</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-300">The question is whether it fits your invoice volume, customer behavior, accounting platform, payment workflow, reconciliation requirements, and total cost. Bill360 provides partner-reported performance claims in its marketing materials; Barons will not present those results as guaranteed outcomes for your business.</p>
+      </div>
+    </section>
+
+    <section class="border-t border-white/10 bg-white/[0.03]">
+      <div class="mx-auto grid max-w-7xl gap-8 px-6 py-16 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div class="max-w-3xl">
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Need help evaluating Bill360?</p>
+          <h2 class="mt-3 text-3xl font-black text-white">Schedule a Strategy Session—not a sales call.</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-300">We will review the way your business invoices, collects, accepts payments, reconciles deposits, and monitors cash flow, then help determine whether Bill360 belongs in the system.</p>
+        </div>
+        <a href="/start" class="inline-flex min-h-12 items-center justify-center rounded-full bg-green-300 px-7 py-3 font-black text-slate-950 transition hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950">Schedule a Strategy Session</a>
+      </div>
+    </section>
+  </main>
+</Layout>
