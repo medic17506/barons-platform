@@ -1,7 +1,7 @@
 export const navigation = [
   { title: 'Who We Help', href: '/who-we-help' },
   { title: 'Solutions', href: '/solutions' },
-  { title: 'Platforms', href: '/platforms' },
+  { title: 'Technology Partners', href: '/platforms' },
   { title: 'BOSS Framework', href: '/boss-framework' },
   { title: 'Gulf Coast Roots', href: '/mobile-gulf-coast' },
   { title: 'Resources', href: '/resources' },
@@ -11,6 +11,8 @@ export const navigation = [
 export const footerNavigation = [
   { title: 'Home', href: '/' },
   { title: 'Who We Help', href: '/who-we-help' },
+  { title: 'Solutions', href: '/solutions' },
+  { title: 'Technology Partners', href: '/platforms' },
   { title: 'Franchise Support', href: '/franchise-support' },
   { title: 'Remote Support', href: '/support' },
   { title: 'Mobile Gulf Coast', href: '/mobile-gulf-coast' },
