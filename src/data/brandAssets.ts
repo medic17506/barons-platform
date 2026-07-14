@@ -4,6 +4,7 @@ export interface BrandAsset {
   logoDark?: string;
   colorClass?: string;
   tileClass?: string;
+  preferredShape?: 'square' | 'wide';
   href?: string;
   source?: string;
   businessSystems?: string[];
@@ -30,6 +31,7 @@ export const brandAssets: Record<string, BrandAsset> = {
     name: 'Bill360',
     logo: '/assets/brands/bill360/bill360-logo.webp',
     tileClass: 'bg-[#4EB570]',
+    preferredShape: 'wide',
     href: '/platforms/bill360/',
     source: 'Bill360 partner-provided brand package, February 2025',
     businessSystems: ['Accounts Receivable', 'Payments', 'Cash Flow', 'Accounting'],
@@ -37,6 +39,7 @@ export const brandAssets: Record<string, BrandAsset> = {
   Clover: {
     name: 'Clover',
     logo: '/assets/brands/clover/clover-logo-horizontal.webp',
+    preferredShape: 'wide',
     href: '/platforms/clover/',
     source: 'Clover/CardConnect partner-provided marketing package, 2024',
     businessSystems: ['Payments', 'POS', 'Inventory', 'Customer Engagement'],
