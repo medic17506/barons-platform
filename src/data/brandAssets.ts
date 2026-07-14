@@ -3,6 +3,7 @@ export interface BrandAsset {
   logo?: string;
   logoDark?: string;
   colorClass?: string;
+  tileClass?: string;
   href?: string;
   source?: string;
   businessSystems?: string[];
@@ -28,6 +29,7 @@ export const brandAssets: Record<string, BrandAsset> = {
   Bill360: {
     name: 'Bill360',
     logo: '/assets/brands/bill360/bill360-logo.webp',
+    tileClass: 'bg-[#4EB570]',
     href: '/platforms/bill360/',
     source: 'Bill360 partner-provided brand package, February 2025',
     businessSystems: ['Accounts Receivable', 'Payments', 'Cash Flow', 'Accounting'],
