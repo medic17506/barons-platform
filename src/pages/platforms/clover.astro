@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/sections/PageHero.astro';
+import BrandLogo from '../../components/entities/BrandLogo.astro';
+
+const devices = [
+  { name: 'Clover Go', description: 'Mobile card acceptance paired with a phone or tablet.' },
+  { name: 'Clover Flex', description: 'Portable payments for tableside, curbside, or field use.' },
+  { name: 'Clover Mini', description: 'Compact point-of-sale functionality for counter environments.' },
+  { name: 'Clover Station Solo or Duo', description: 'Full-size POS configurations for higher-volume operations.' },
+  { name: 'Clover Kiosk', description: 'Self-service ordering for applicable restaurant environments.' },
+];
+
+const operatingAreas = [
+  'Payment acceptance in person, online, by invoice, or through a virtual terminal',
+  'Order, item, and inventory management',
+  'Employee management and time-clock integrations',
+  'Customer records, feedback, promotions, rewards, and gift cards',
+  'Online ordering, takeout, delivery, and restaurant tools',
+  'QuickBooks Online accounting synchronization',
+  'App-market integrations for additional business functions',
+];
+---
+
+<Layout title="Clover POS & Payment Systems | Barons, Inc." description="Explore Clover payment devices, point-of-sale capabilities, integrations, and where Clover may fit inside a connected business operating system.">
+  <main id="main-content">
+    <PageHero eyebrow="Technology Partner · Payments & POS" title="The point of sale is part of the operating system." description="Clover combines payment acceptance with point-of-sale, customer, employee, inventory, online-ordering, and integration capabilities for retail, restaurant, and service businesses." />
+
+    <section class="mx-auto max-w-7xl px-6 py-16">
+      <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+        <div class="rounded-3xl bg-white p-8 shadow-2xl shadow-black/20">
+          <BrandLogo name="Clover" size="lg" showName={false} />
+        </div>
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Where it fits</p>
+          <h2 class="mt-3 text-3xl font-black text-white">Where the customer transaction begins.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-300">Clover can serve as the transaction and point-of-sale layer for a business. The real implementation question is how sales, items, customers, payments, deposits, payroll, and accounting information move from Clover into the rest of the Business Operating System.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-white/[0.03]">
+      <div class="mx-auto max-w-7xl px-6 py-16">
+        <div class="max-w-3xl">
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Device choices</p>
+          <h2 class="mt-3 text-3xl font-black text-white">Match the hardware to the workflow.</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-300">A device should be selected around how and where the business accepts payments—not because one terminal happens to be promoted this month.</p>
+        </div>
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {devices.map((device) => (
+            <article class="rounded-3xl border border-white/10 bg-slate-950/60 p-6">
+              <h3 class="text-xl font-black text-white">{device.name}</h3>
+              <p class="mt-3 leading-7 text-slate-400">{device.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-6 py-16">
+      <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">More than card acceptance</p>
+          <h2 class="mt-3 text-3xl font-black text-white">Clover can touch several business systems.</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-300">That reach is useful, but it also makes design and implementation important. The source of truth for inventory, customers, employees, and accounting must be intentional.</p>
+        </div>
+        <ul class="grid gap-3">
+          {operatingAreas.map((item) => <li class="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-slate-200">{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-white/[0.03]">
+      <div class="mx-auto max-w-5xl px-6 py-16">
+        <div class="rounded-3xl border border-green-300/25 bg-green-300/[0.06] p-8 sm:p-10">
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Barons perspective</p>
+          <h2 class="mt-3 text-3xl font-black text-white">A POS decision is also an accounting and operations decision.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-300">We evaluate Clover based on business type, payment flow, hardware needs, item and inventory structure, accounting integration, support, processing terms, and future growth. Temporary device promotions are never the foundation of a long-term recommendation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="mx-auto grid max-w-7xl gap-8 px-6 py-16 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div class="max-w-3xl">
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Need help choosing a POS?</p>
+          <h2 class="mt-3 text-3xl font-black text-white">Schedule a Strategy Session—not a sales call.</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-300">We will help you compare the workflow, hardware, integrations, processing model, and total cost so you can choose the right direction for the right reasons.</p>
+        </div>
+        <a href="/start" class="inline-flex min-h-12 items-center justify-center rounded-full bg-green-300 px-7 py-3 font-black text-slate-950 transition hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950">Schedule a Strategy Session</a>
+      </div>
+    </section>
+  </main>
+</Layout>
