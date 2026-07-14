@@ -1,0 +1,94 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import PageHero from '../../../components/sections/PageHero.astro';
+import BrandLogo from '../../../components/entities/BrandLogo.astro';
+import { cloverProducts } from '../../../data/cloverProducts';
+
+export function getStaticPaths() {
+  return cloverProducts.map((product) => ({
+    params: { product: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+---
+
+<Layout title={product.seoTitle} description={product.seoDescription} canonical={`/platforms/clover/${product.slug}`}>
+  <main id="main-content">
+    <PageHero eyebrow={`Clover · ${product.eyebrow}`} title={product.headline} description={product.description} />
+
+    <section class="mx-auto max-w-7xl px-6 py-16">
+      <div class="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+        <div class="rounded-3xl bg-white p-8 shadow-2xl shadow-black/20">
+          <BrandLogo name="Clover" size="lg" showName={false} />
+        </div>
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">{product.name}</p>
+          <h2 class="mt-3 text-3xl font-black text-white">Choose the device around the workflow.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-300">Hardware is only one part of the decision. Barons also evaluates processing, service plans, accessories, staff roles, customer experience, accounting integration, reconciliation, reporting, and long-term operating cost.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-white/[0.03]">
+      <div class="mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-2">
+        <div>
+          <h2 class="text-3xl font-black text-white">Best suited for</h2>
+          <ul class="mt-6 grid gap-3">
+            {product.bestFor.map((item: string) => <li class="rounded-2xl border border-white/10 bg-slate-950/50 px-5 py-4 text-slate-200">{item}</li>)}
+          </ul>
+        </div>
+        <div>
+          <h2 class="text-3xl font-black text-white">What it can support</h2>
+          <ul class="mt-6 grid gap-3">
+            {product.capabilities.map((item: string) => <li class="rounded-2xl border border-white/10 bg-slate-950/50 px-5 py-4 text-slate-200">{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-6 py-16">
+      <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Before you choose</p>
+          <h2 class="mt-3 text-3xl font-black text-white">The device must fit the whole Business Operating System.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-300">A payment device can create new chaos when the sales workflow, items, inventory, employee access, deposits, fees, and accounting integration are treated as separate decisions.</p>
+          <div class="mt-8 flex flex-wrap gap-2">
+            {product.relatedSystems.map((system: string) => <span class="rounded-full border border-green-300/25 bg-green-300/[0.06] px-4 py-2 text-sm font-bold text-green-200">{system}</span>)}
+          </div>
+        </div>
+        <ul class="grid gap-3">
+          {product.considerations.map((item: string) => <li class="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-slate-200">{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="border-y border-white/10 bg-white/[0.03]">
+      <div class="mx-auto max-w-5xl px-6 py-16">
+        <div class="rounded-3xl border border-green-300/25 bg-green-300/[0.06] p-8 sm:p-10">
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Barons perspective</p>
+          <h2 class="mt-3 text-3xl font-black text-white">A device promotion is not a technology strategy.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-300">We help evaluate Clover products based on how the business actually sells, serves customers, manages staff, handles items and inventory, reconciles payments, and uses financial information. The goal is the right product at the right price—not simply the hardware being promoted today.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="mx-auto grid max-w-7xl gap-8 px-6 py-16 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div class="max-w-3xl">
+          <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Not sure which Clover product fits?</p>
+          <h2 class="mt-3 text-3xl font-black text-white">Schedule a Strategy Session—not a sales call.</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-300">We will help you compare devices, service plans, accessories, processing, integrations, and total cost so you can make an informed decision.</p>
+        </div>
+        <a href="/start" class="inline-flex min-h-12 items-center justify-center rounded-full bg-green-300 px-7 py-3 font-black text-slate-950 transition hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-300 focus-visible:ring-offset-4 focus-visible:ring-offset-slate-950">Schedule a Strategy Session</a>
+      </div>
+    </section>
+
+    <section class="border-t border-white/10">
+      <div class="mx-auto max-w-7xl px-6 py-10">
+        <a href="/platforms/clover/" class="font-black text-green-300 hover:text-green-200">← Explore all Clover products</a>
+      </div>
+    </section>
+  </main>
+</Layout>
