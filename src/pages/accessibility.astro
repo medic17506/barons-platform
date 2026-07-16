@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import { site } from '../config/site';
+---
+
+<Layout title="Accessibility Statement | Barons, Inc." description="Barons is committed to providing an accessible, human-first website experience and welcomes feedback when barriers are encountered." canonical="/accessibility/">
+  <main id="main-content">
+    <PageHero eyebrow="Human-first by design" title="Accessibility is part of how we serve people." description="We are working toward an experience that people can use across devices, assistive technologies, and different ways of navigating the web." />
+
+    <article class="mx-auto max-w-4xl px-6 py-16 text-slate-300">
+      <div class="space-y-10">
+        <section aria-labelledby="commitment-heading">
+          <h2 id="commitment-heading" class="text-3xl font-black text-white">Our commitment</h2>
+          <p class="mt-4 text-lg leading-8">Barons, Inc. is committed to improving the accessibility and usability of our website. Our current design and development target is the Web Content Accessibility Guidelines (WCAG) 2.2 Level AA.</p>
+          <p class="mt-4 leading-7">Accessibility is an ongoing responsibility, not a one-time certification. We review new pages and features for keyboard access, readable contrast, meaningful structure, text alternatives, responsive behavior, and reduced-motion preferences.</p>
+        </section>
+
+        <section aria-labelledby="features-heading">
+          <h2 id="features-heading" class="text-3xl font-black text-white">Accessibility features</h2>
+          <ul class="mt-5 list-disc space-y-3 pl-6 leading-7 marker:text-green-300">
+            <li>A skip link that moves directly to the main page content.</li>
+            <li>Keyboard-visible focus indicators for interactive controls.</li>
+            <li>Semantic headings, landmarks, links, and form labels where Barons controls the markup.</li>
+            <li>Responsive layouts designed to reflow on smaller screens and at increased zoom.</li>
+            <li>Reduced animation for visitors who prefer reduced motion.</li>
+            <li>Text alternatives for meaningful images and intentionally empty alternatives for decorative imagery.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="third-party-heading">
+          <h2 id="third-party-heading" class="text-3xl font-black text-white">Third-party tools</h2>
+          <p class="mt-4 leading-7">Some forms, scheduling tools, support tools, videos, and documents may be provided through third-party platforms. We select and configure these tools with accessibility in mind, but some aspects remain outside our direct control. When possible, we provide an alternate link or another way to complete the same task.</p>
+        </section>
+
+        <section aria-labelledby="feedback-heading" class="rounded-3xl border border-green-300/25 bg-green-300/[0.06] p-8">
+          <h2 id="feedback-heading" class="text-3xl font-black text-white">Tell a real person</h2>
+          <p class="mt-4 leading-7">If you encounter a barrier or need information in another format, contact us. Please tell us the page, task, or content that created difficulty and the best way to reach you.</p>
+          <div class="mt-6 flex flex-wrap gap-4">
+            <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="inline-flex min-h-12 items-center rounded-full bg-green-300 px-6 py-3 font-black text-slate-950 hover:bg-green-200">Call {site.phone}</a>
+            <a href={`mailto:${site.email}?subject=Website accessibility feedback`} class="inline-flex min-h-12 items-center rounded-full border border-white/20 px-6 py-3 font-black text-white hover:border-green-300 hover:text-green-300">Email accessibility feedback</a>
+          </div>
+        </section>
+
+        <p class="text-sm text-slate-400">Last reviewed: July 2026.</p>
+      </div>
+    </article>
+  </main>
+</Layout>
