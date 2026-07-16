@@ -4,9 +4,9 @@ export const site = {
   tagline: 'Business systems. Built for growth. Backed by people.',
   description:
     'Barons helps franchise owners, multi-location operators, and growing businesses build connected accounting, payroll, payments, CRM, reporting, automation, and operational systems.',
-  url: 'https://baronsinc.com',
-  phone: '',
-  email: '',
+  url: 'https://baronsinc.net',
+  phone: '479-641-1055',
+  email: 'brandon@baronsinc.net',
   logo: '/assets/logo/png/barons-logo.png',
   mark: '/assets/logo/png/barons-mark.png',
   discoveryCTA: 'Start a Systems Conversation',
