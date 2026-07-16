@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import { site } from '../config/site';
+---
+
+<Layout title="Website Privacy Notice | Barons, Inc." description="Learn what information the Barons website may collect, why it is used, and how to contact us about privacy choices." canonical="/privacy/">
+  <main id="main-content">
+    <PageHero eyebrow="Privacy and transparency" title="We use data to improve the experience—not to hide what we are doing." description="This notice explains the information our website may collect, how it may be used, and the choices available to visitors." />
+
+    <article class="mx-auto max-w-4xl px-6 py-16 text-slate-300">
+      <div class="space-y-10">
+        <section>
+          <h2 class="text-3xl font-black text-white">Information you choose to provide</h2>
+          <p class="mt-4 leading-7">When you submit a contact form, request support, schedule a Strategy Session, download a resource, or otherwise contact Barons, we may receive information such as your name, business name, email address, telephone number, current technology, business needs, and the message or pain points you provide.</p>
+        </section>
+
+        <section>
+          <h2 class="text-3xl font-black text-white">Website and device information</h2>
+          <p class="mt-4 leading-7">With your consent where required, analytics and advertising tools may collect information such as pages viewed, approximate location, referral source, device and browser type, interactions with links or forms, and identifiers used to understand returning visits or measure advertising performance.</p>
+          <p class="mt-4 leading-7">Barons does not intend to use website analytics to obtain sensitive personal information. Session-replay or behavior-analysis tools, when enabled, should be configured to mask form entries and other sensitive content.</p>
+        </section>
+
+        <section>
+          <h2 class="text-3xl font-black text-white">How information may be used</h2>
+          <ul class="mt-5 list-disc space-y-3 pl-6 leading-7 marker:text-green-300">
+            <li>Respond to questions, provide support, and prepare for Strategy Sessions.</li>
+            <li>Understand which resources, solutions, and technology topics are useful to visitors.</li>
+            <li>Improve website content, usability, accessibility, performance, and marketing.</li>
+            <li>Measure campaigns and create advertising audiences when you have permitted the relevant tracking.</li>
+            <li>Maintain security, prevent abuse, and meet legal or contractual responsibilities.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-3xl font-black text-white">Cookies and marketing choices</h2>
+          <p class="mt-4 leading-7">Essential technologies may be used to operate the website and remember privacy choices. Optional analytics and advertising technologies should remain disabled until you make a choice through the website privacy controls. You may change that choice later through the “Privacy choices” link in the footer.</p>
+          <p class="mt-4 leading-7">Disabling optional tracking does not prevent you from reading the website, contacting Barons, or scheduling a Strategy Session.</p>
+        </section>
+
+        <section>
+          <h2 class="text-3xl font-black text-white">Service providers and embedded tools</h2>
+          <p class="mt-4 leading-7">The website may use service providers for hosting, forms, scheduling, customer relationship management, analytics, advertising measurement, email, and remote support. Embedded third-party tools may process information under their own terms and privacy notices.</p>
+        </section>
+
+        <section>
+          <h2 class="text-3xl font-black text-white">Retention and security</h2>
+          <p class="mt-4 leading-7">We retain information only as reasonably needed for the purposes described above, business records, security, and legal obligations. No transmission or storage method is completely secure, but we use reasonable administrative and technical safeguards appropriate to the information involved.</p>
+        </section>
+
+        <section class="rounded-3xl border border-green-300/25 bg-green-300/[0.06] p-8">
+          <h2 class="text-3xl font-black text-white">Questions or requests</h2>
+          <p class="mt-4 leading-7">To ask a privacy question, request access or correction where applicable, or discuss marketing communications, contact a real person at Barons.</p>
+          <div class="mt-6 flex flex-wrap gap-4">
+            <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`} class="inline-flex min-h-12 items-center rounded-full bg-green-300 px-6 py-3 font-black text-slate-950 hover:bg-green-200">Call {site.phone}</a>
+            <a href={`mailto:${site.email}?subject=Website privacy question`} class="inline-flex min-h-12 items-center rounded-full border border-white/20 px-6 py-3 font-black text-white hover:border-green-300 hover:text-green-300">Email a privacy question</a>
+          </div>
+        </section>
+
+        <p class="text-sm text-slate-400">Effective: July 2026. This general website notice should be reviewed with qualified counsel before launch and whenever tracking practices materially change.</p>
+      </div>
+    </article>
+  </main>
+</Layout>
