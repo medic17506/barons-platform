@@ -1,0 +1,32 @@
+---
+const mapUrl = 'https://batchgeo.com/map/e8dfc8bc456145e1ddaa1f8fbbaf7e75';
+---
+
+<section aria-labelledby="asg-map-heading" class="border-y border-white/10 bg-white/[0.03]">
+  <div class="mx-auto max-w-7xl px-6 py-20">
+    <div class="max-w-3xl">
+      <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">The network</p>
+      <h2 id="asg-map-heading" class="mt-4 text-4xl font-black tracking-tight text-white md:text-5xl">See the ASG and QMSP network.</h2>
+      <p class="mt-5 text-lg leading-8 text-slate-300">Our network brings together independent accounting and technology professionals across the country. Explore the map to see where members are located and the reach available through the wider community.</p>
+    </div>
+
+    <div class="mt-10 overflow-hidden rounded-3xl border border-white/15 bg-white shadow-2xl shadow-black/25">
+      <iframe
+        src={mapUrl}
+        title="Interactive map of ASG and QMSP network locations"
+        class="block h-[550px] w-full border-0"
+        sandbox="allow-top-navigation allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-modals allow-forms"
+        allow="geolocation https://batchgeo.com"
+        scrolling="no"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <p class="mt-4 text-sm text-slate-400">
+      Prefer the full map experience?
+      <a href={mapUrl} target="_blank" rel="noopener noreferrer" class="font-bold text-green-300 underline decoration-green-300/50 underline-offset-4 hover:text-green-200">Open the ASG & QMSP map in a new tab</a>.
+    </p>
+  </div>
+</section>
