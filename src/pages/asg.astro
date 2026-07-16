@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import ButtonLink from '../components/ui/ButtonLink.astro';
+import ASGMap from '../components/asg/ASGMap.astro';
+---
+
+<Layout title="ASG Network | Barons, Inc." description="Learn about the ASG and QMSP network, explore member locations, and connect with Barons about joining or working with the network.">
+  <main id="main-content">
+    <PageHero
+      eyebrow="ASG Network"
+      title="Independent professionals. Shared experience. Wider reach."
+      description="The ASG and QMSP network connects accounting and business-technology professionals who remain independent while gaining access to relationships, resources, and support beyond a single firm."
+    />
+
+    <section class="mx-auto max-w-7xl px-6 py-20">
+      <div class="grid gap-8 md:grid-cols-3">
+        {[
+          ['Stay independent', 'Build your own client relationships and business while remaining connected to a broader professional community.'],
+          ['Expand capability', 'Gain access to experience, product knowledge, implementation resources, and people who can help when a client need falls outside your lane.'],
+          ['Serve clients better', 'Use the network to find better answers, stronger referrals, and additional support without pretending one person or firm can do everything.'],
+        ].map(([title, description]) => (
+          <article class="rounded-3xl border border-white/10 bg-white/[0.03] p-7">
+            <h2 class="text-2xl font-black text-white">{title}</h2>
+            <p class="mt-4 leading-7 text-slate-300">{description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <ASGMap />
+
+    <section class="mx-auto grid max-w-7xl gap-8 px-6 py-20 lg:grid-cols-[1fr_auto] lg:items-center">
+      <div class="max-w-3xl">
+        <p class="text-sm font-black uppercase tracking-[0.22em] text-green-300">Interested in the network?</p>
+        <h2 class="mt-4 text-4xl font-black tracking-tight text-white">Start with a conversation.</h2>
+        <p class="mt-5 text-lg leading-8 text-slate-300">Tell us about your business, the clients you serve, and what you are looking for in a professional network. We will help determine whether the ASG relationship is a fit.</p>
+      </div>
+      <ButtonLink href="/contact">Ask About ASG <span aria-hidden="true">→</span></ButtonLink>
+    </section>
+  </main>
+</Layout>
